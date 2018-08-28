@@ -1,0 +1,16 @@
+{
+  "name": "first-next-demo",
+  "version": "1.0.0",
+  "description": "first nextjs demo",
+  "main": "index.js",
+  "author": "luffyZhou",
+  "license": "MIT",
+  "scripts": {
+    "dev": "next -p 3006"
+  },
+  "dependencies": {
+    "next": "^6.1.1",
+    "react": "^16.4.2",
+    "react-dom": "^16.4.2"
+  }
+}
