@@ -1,0 +1,23 @@
+{
+  "extends": "react-app",
+  "env": {
+    "browser": true,
+    "commonjs": true,
+    "node": true,
+    "es6": true
+  },
+  "plugins": [
+    "jsx-a11y"
+  ],
+  "parserOptions": {
+    "ecmaVersion": 6
+  },
+  "rules": {
+    "no-console": "off",
+    "strict": ["error", "global"],
+    "curly": "warn",
+    "semi": [1, "always"],
+    "jsx-a11y/href-no-hash": 0,
+    "indent": ["error", 2]
+  }
+}

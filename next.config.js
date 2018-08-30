@@ -10,23 +10,12 @@ if (typeof require !== 'undefined') {
 module.exports = withCss({
   webpack: (config, { buildId, dev, isServer, defaultLoaders }) => {
     
-    // Important: return the modified config
-    config.module.rules.push({
-        test: /\.less$/,
-        use: [
-          {
-            loader: "style-loader"
-          }, {
-              loader: "css-loader"
-          }, {
-              loader: "less-loader",
-              options: {
-                sourceMap: true,
-                modifyVars: AntdTheme
-              }
-          }
-        ]
-    })
+    // // add eslint-loader
+    // config.module.rules.push({ 
+    //   test: /\.js$/,
+    //   exclude: /node_modules/,
+    //   loader: 'eslint-loader',
+    // });
     return config;
   },
   webpackDevMiddleware: config => {

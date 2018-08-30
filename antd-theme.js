@@ -1,3 +1,4 @@
+/* eslint-disable */
 module.exports = {
   'primary-color': '#ec6a00',
   // '@normal-color': '#d9d9d9', // Using @ sign in the variable name
