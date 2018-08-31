@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Table } from 'antd';
+import Link from 'next/link';
 import Layout from '../Layout';
 import { RoleType } from '../../constants/ConstTypes';
 
@@ -9,12 +10,12 @@ class UserList extends Component {
     this.state = {};
     this.dataSource = [{
       key: '1',
-      username: '路飞',
+      username: 'luffy',
       email: 'luffy@126.com',
       role: 1
     }, {
       key: '2',
-      username: '鸣人',
+      username: 'naruto',
       email: 'naruto@126.com',
       role: 10
     }];
@@ -23,6 +24,11 @@ class UserList extends Component {
       title: '姓名',
       dataIndex: 'username',
       key: 'username',
+      render: (text) => (
+        <Link href={{ pathname: '/user/userDetail', query: { username: text } }}>
+          <a>{text}</a>
+        </Link>
+      )
     }, {
       title: '邮箱',
       dataIndex: 'email',

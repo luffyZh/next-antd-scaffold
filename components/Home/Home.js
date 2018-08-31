@@ -6,7 +6,7 @@ const Home = () => (
   <Layout title='首页'>
     <Fragment>
       <h1>Hello Next.js</h1>
-      <Link href='/userList'>
+      <Link href='/user/userList'>
         <Button type='primary'>用户列表页</Button>
       </Link>
     </Fragment>
