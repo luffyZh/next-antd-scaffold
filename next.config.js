@@ -1,6 +1,7 @@
 /* eslint-disable */
 const withCss = require('@zeit/next-css');
-const AntdTheme = require('./antd-theme');
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer');
+const path = require('path');
 
 // fix: prevents error when .css files are required by node
 if (typeof require !== 'undefined') {
@@ -9,13 +10,37 @@ if (typeof require !== 'undefined') {
 
 module.exports = withCss({
   webpack: (config, { buildId, dev, isServer, defaultLoaders }) => {
-    
-    // // add eslint-loader
-    // config.module.rules.push({ 
-    //   test: /\.js$/,
-    //   exclude: /node_modules/,
-    //   loader: 'eslint-loader',
-    // });
+    if (!dev) {
+      config.plugins.push(
+        new BundleAnalyzerPlugin({
+          analyzerMode: 'disabled',
+          // For all options see https://github.com/th0r/webpack-bundle-analyzer#as-plugin
+          generateStatsFile: true,
+          // Will be available at `.next/stats.json`
+          statsFilename: 'stats.json'
+        })
+      );
+    } else {
+      config.module.rules.push({
+        test: /\.js$/,
+        enforce: 'pre',
+
+        include: [
+          path.resolve('components'),
+          path.resolve('pages'),
+          path.resolve('utils'),
+          path.resolve('constants')
+        ],
+        options: {
+          configFile: path.resolve('.eslintrc'),
+          eslint: {
+            configFile: path.resolve(__dirname, '.eslintrc')
+          }
+        },
+        loader: 'eslint-loader'
+      });
+      config.devtool = 'cheap-module-eval-source-map';
+    }
     return config;
   },
   webpackDevMiddleware: config => {

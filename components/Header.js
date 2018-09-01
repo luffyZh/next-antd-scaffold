@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import { Component } from 'react';
 import Link from 'next/link';
 import { color_youdao, color_youdao_border } from '../constants/CustomTheme';
 

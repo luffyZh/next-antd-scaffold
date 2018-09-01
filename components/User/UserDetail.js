@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import { Fragment } from 'react';
 import Layout from '../Layout';
 const UserDetail = () => (
   <Layout title='用户详情页'>

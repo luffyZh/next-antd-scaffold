@@ -1,8 +1,10 @@
-import React, { Component } from 'react';
+import { Component } from 'react';
 import { Table } from 'antd';
 import Link from 'next/link';
 import Layout from '../Layout';
 import { RoleType } from '../../constants/ConstTypes';
+
+const a = 0;
 
 class UserList extends Component {
   constructor(props) {
@@ -19,7 +21,7 @@ class UserList extends Component {
       email: 'naruto@126.com',
       role: 10
     }];
-    
+
     this.columns = [{
       title: '姓名',
       dataIndex: 'username',

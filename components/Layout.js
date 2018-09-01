@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import { Fragment } from 'react';
 import Head from 'next/head';
 import Header from './Header';
 export default ({title, children }) => (
