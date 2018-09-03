@@ -1,14 +1,17 @@
 /* eslint-disable */
-const withCss = require('@zeit/next-css');
+const withLess = require('@zeit/next-less');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer');
 const path = require('path');
 
 // fix: prevents error when .css files are required by node
 if (typeof require !== 'undefined') {
-  require.extensions['.css'] = (file) => {}
+  require.extensions['.less'] = (file) => {}
 }
 
-module.exports = withCss({
+module.exports = withLess({
+  lessLoaderOptions: {
+    javascriptEnabled: true,
+  },
   webpack: (config, { buildId, dev, isServer, defaultLoaders }) => {
     if (!dev) {
       config.plugins.push(

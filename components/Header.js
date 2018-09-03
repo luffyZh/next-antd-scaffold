@@ -1,6 +1,6 @@
 import { Component } from 'react';
 import Link from 'next/link';
-import { color_youdao, color_youdao_border } from '../constants/CustomTheme';
+import { color_primary } from '../constants/CustomTheme';
 
 class Header extends Component {
   constructor(props) {
@@ -23,8 +23,7 @@ class Header extends Component {
         <style jsx>{`
           .header-container {
             height: 60px;
-            background-color: ${color_youdao};
-            border: 1px solid ${color_youdao_border};
+            background-color: ${color_primary};
             margin-bottom: 10px;
           }
           h2 {

@@ -1,6 +1,8 @@
 import { Fragment } from 'react';
 import Head from 'next/head';
 import Header from './Header';
+import '../asserts/styles.less';
+
 export default ({title, children }) => (
   <Fragment>
     <Head>

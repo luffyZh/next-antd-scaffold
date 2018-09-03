@@ -11,10 +11,11 @@
     "start": "NODE_ENV=production node server.js"
   },
   "dependencies": {
-    "@zeit/next-css": "^0.2.0",
+    "@zeit/next-less": "^0.3.0",
     "antd": "^3.8.4",
     "babel-plugin-import": "^1.8.0",
     "express": "^4.16.3",
+    "less": "^3.8.1",
     "next": "^6.1.1",
     "react": "^16.4.2",
     "react-dom": "^16.4.2"
