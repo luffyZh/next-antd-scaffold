@@ -27,7 +27,7 @@ class UserList extends Component {
       dataIndex: 'username',
       key: 'username',
       render: (text) => (
-        <Link href={{ pathname: '/user/userDetail', query: { username: text } }}>
+        <Link href={`/user/userDetail?username=${text}`} as={`/user/userDetail/${text}`}>
           <a>{text}</a>
         </Link>
       )

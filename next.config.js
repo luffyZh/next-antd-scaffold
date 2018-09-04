@@ -1,6 +1,6 @@
 /* eslint-disable */
 const withLess = require('@zeit/next-less');
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer');
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const path = require('path');
 
 // fix: prevents error when .css files are required by node
@@ -42,8 +42,8 @@ module.exports = withLess({
         },
         loader: 'eslint-loader'
       });
-      config.devtool = 'cheap-module-eval-source-map';
-    }
+      config.devtool = 'source-map';
+  }
     return config;
   },
   webpackDevMiddleware: config => {
