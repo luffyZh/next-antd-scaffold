@@ -1,8 +1,10 @@
-import React, { Component } from 'react';
+import { Component } from 'react';
 import { Table } from 'antd';
 import Link from 'next/link';
 import Layout from '../Layout';
 import { RoleType } from '../../constants/ConstTypes';
+
+const a = 0;
 
 class UserList extends Component {
   constructor(props) {
@@ -19,13 +21,13 @@ class UserList extends Component {
       email: 'naruto@126.com',
       role: 10
     }];
-    
+
     this.columns = [{
       title: '姓名',
       dataIndex: 'username',
       key: 'username',
       render: (text) => (
-        <Link href={{ pathname: '/user/userDetail', query: { username: text } }}>
+        <Link href={`/user/userDetail?username=${text}`} as={`/user/userDetail/${text}`}>
           <a>{text}</a>
         </Link>
       )
