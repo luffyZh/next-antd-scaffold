@@ -2,7 +2,11 @@ const express = require('express');
 const next = require('next');
 
 const port = parseInt(process.env.PORT, 10) || 3006;
-const dev = process.env.NODE_ENV.trim() !== 'production';
+// 判断开发环境和生产环境
+process.env.NODE_ENV = (typeof process.env.NODE_ENV !== 'undefined')
+  ? process.env.NODE_ENV.trim()
+  : 'development';
+const dev = process.env.NODE_ENV !== 'production';
 
 const app = next({ dev });
 const handle = app.getRequestHandler();
@@ -14,7 +18,7 @@ app.prepare()
     server.get('/user/userDetail', (req, res) => {
       return app.render(req, res, `/user/userDetail/${req.query.username}`);
     });
-    
+
     server.get('*', (req, res) => {
       return handle(req, res);
     });
