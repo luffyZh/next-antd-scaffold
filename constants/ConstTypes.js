@@ -1,7 +1,14 @@
-
+// 用户级别
 export const RoleType = {
   1: '管理员',
   10: '普通用户'
+};
+
+// 路由对应页面标题
+export const RouterTitle = {
+  '/': '首页',
+  '/user/userList': '用户列表',
+  '/user/userDetail': '用户详情'
 };
 
 export const TagsArray = [

@@ -1,7 +1,6 @@
 import { Component } from 'react';
 import { Table } from 'antd';
 import Link from 'next/link';
-import Layout from '../Layout';
 import { RoleType } from '../../constants/ConstTypes';
 
 const a = 0;
@@ -45,14 +44,12 @@ class UserList extends Component {
 
   render() {
     return (
-      <Layout title='用户列表页'>
-        <Table
-          style={{ minWidth: '600px' }}
-          dataSource={this.dataSource}
-          columns={this.columns}
-          bordered
-        />
-      </Layout>
+      <Table
+        style={{ minWidth: '600px' }}
+        dataSource={this.dataSource}
+        columns={this.columns}
+        bordered
+      />
     );
   }
 }

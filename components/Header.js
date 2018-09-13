@@ -9,6 +9,15 @@ class Header extends Component {
     this.state = { title };
   }
 
+  static getDerivedStateFromProps(nextProps, prevState) {
+    if (nextProps.title!== prevState.title) {
+      return {
+        title: nextProps.title
+      };
+    }
+    return null;
+  }
+
   render() {
     const { title } = this.state;
     return (
