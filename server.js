@@ -2,6 +2,11 @@ const express = require('express');
 const next = require('next');
 
 const port = parseInt(process.env.PORT, 10) || 3006;
+
+process.env.NODE_ENV = (typeof process.env.NODE_ENV !== 'undefined')
+  ? process.env.NODE_ENV.trim()
+  : 'development';
+
 const dev = process.env.NODE_ENV.trim() !== 'production';
 
 const app = next({ dev });
