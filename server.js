@@ -1,4 +1,5 @@
 const express = require('express');
+const { parse } = require('url');
 const next = require('next');
 
 const port = parseInt(process.env.PORT, 10) || 3006;
@@ -20,6 +21,12 @@ app.prepare()
     });
 
     server.get('*', (req, res) => {
+      const parsedUrl = parse(req.url, true);
+      const { pathname } = parsedUrl;
+      if (typeof pathname !== 'undefined' && pathname.indexOf('/user/userDetail/') > -1) {
+        const query = { username: pathname.split('/')[3] };
+        return app.render(req, res, '/user/userDetail', query);
+      }
       return handle(req, res);
     });
 

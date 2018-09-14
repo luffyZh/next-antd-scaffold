@@ -1,8 +1,19 @@
-import { Fragment } from 'react';
+import { Component, Fragment } from 'react';
 
-const UserDetail = () => (
-  <Fragment>
-    <h1>用户信息</h1>
-  </Fragment>
-);
+class UserDetail extends Component {
+  constructor(props) {
+    super(props);
+    const { router: { query } } = props;
+    this.state = { username: query.username };
+  }
+
+  render() {
+    return (
+      <Fragment>
+        <h1>用户信息：{this.state.username}</h1>
+      </Fragment>
+    );
+  }
+}
+
 export default UserDetail;
