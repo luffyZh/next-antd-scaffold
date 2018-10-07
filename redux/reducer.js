@@ -5,7 +5,7 @@ export const exampleInitialState = {
   error: false,
   lastUpdate: 0,
   light: false,
-  placeholderData: null
+  userData: null
 };
 
 function reducer (state = exampleInitialState, action) {
@@ -37,13 +37,7 @@ function reducer (state = exampleInitialState, action) {
     case actionTypes.LOAD_DATA_SUCCESS:
       return {
         ...state,
-        ...{placeholderData: action.data}
-      };
-
-    case actionTypes.TICK_CLOCK:
-      return {
-        ...state,
-        ...{lastUpdate: action.ts, light: !!action.light}
+        ...{userData: action.data}
       };
 
     default:

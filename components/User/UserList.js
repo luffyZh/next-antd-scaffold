@@ -3,23 +3,13 @@ import { Table } from 'antd';
 import Link from 'next/link';
 import { RoleType } from '../../constants/ConstTypes';
 
-const a = 0;
-
 class UserList extends Component {
+  
   constructor(props) {
     super(props);
-    this.state = {};
-    this.dataSource = [{
-      key: '1',
-      username: 'luffy',
-      email: 'luffy@126.com',
-      role: 1
-    }, {
-      key: '2',
-      username: 'naruto',
-      email: 'naruto@126.com',
-      role: 10
-    }];
+    this.state = {
+      dataSource: []
+    };
 
     this.columns = [{
       title: '姓名',
@@ -42,11 +32,25 @@ class UserList extends Component {
     }];
   }
 
+  static getDerivedStateFromProps(nextProps, prevState) {
+    if (nextProps.userData && nextProps.userData !== prevState.dataSource) {
+      return {
+        dataSource: nextProps.userData
+      };
+    }
+    return null; 
+  }
+
   render() {
+    const { dataSource } = this.state;
+    dataSource.map(item => {
+      item.key = item.id;
+      item.role = 10;
+    });
     return (
       <Table
         style={{ minWidth: '600px' }}
-        dataSource={this.dataSource}
+        dataSource={dataSource}
         columns={this.columns}
         bordered
       />

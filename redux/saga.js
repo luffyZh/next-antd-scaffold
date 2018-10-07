@@ -1,10 +1,10 @@
 /* global fetch */
 
-import {delay} from 'redux-saga';
-import {all, call, put, take, takeLatest} from 'redux-saga/effects';
+import { delay } from 'redux-saga';
+import { all, call, put, take, takeLatest } from 'redux-saga/effects';
 
 
-import {actionTypes, failure, loadDataSuccess, tickClock} from './actions';
+import { actionTypes, failure, loadDataSuccess, tickClock } from './actions';
 
 function * runClockSaga () {
   yield take(actionTypes.START_CLOCK);
