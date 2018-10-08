@@ -3146,6 +3146,10 @@ ieee754@^1.1.4:
   version "1.1.12"
   resolved "https://registry.yarnpkg.com/ieee754/-/ieee754-1.1.12.tgz#50bf24e5b9c8bb98af4964c941cdb0918da7b60b"
 
+if-comp@^0.0.8:
+  version "0.0.8"
+  resolved "https://registry.yarnpkg.com/if-comp/-/if-comp-0.0.8.tgz#f2ce5d2b65581a8935fd4a3a30d58ce27ab4e0e9"
+
 iferr@^0.1.5:
   version "0.1.5"
   resolved "https://registry.yarnpkg.com/iferr/-/iferr-0.1.5.tgz#c60eed69e6d8fdb6b3104a1fcbca1c192dc5b501"

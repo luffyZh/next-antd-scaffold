@@ -16,6 +16,7 @@
     "babel-plugin-import": "^1.8.0",
     "es6-promise": "^4.2.5",
     "express": "^4.16.3",
+    "if-comp": "^0.0.8",
     "isomorphic-unfetch": "^3.0.0",
     "less": "^3.8.1",
     "next": "6.1.1",

@@ -1,7 +1,8 @@
 import { Fragment } from 'react';
 import { Button } from 'antd';
 import Link from 'next/link';
-import Counter from './Counter';
+import IfComp from 'if-comp';
+import Counter from '../../containers/home/counter';
 
 const Home = () => (
   <Fragment>
@@ -9,10 +10,15 @@ const Home = () => (
     <Link href='/user/userList'>
       <Button type='primary'>用户列表页</Button>
     </Link>
-    <div>
-      Redux Counter Demo:
-      <Counter />
-    </div>
+    <IfComp
+      expression={true}
+      trueComp={
+        <div>
+          Redux Counter Demo:
+          <Counter />
+        </div>
+      }
+    />
   </Fragment>
 );
 export default Home;
