@@ -4,8 +4,8 @@ import Link from 'next/link';
 import { RoleType } from '../../constants/ConstTypes';
 
 class UserList extends Component {
-  
   constructor(props) {
+
     super(props);
     this.state = {
       dataSource: []
@@ -33,12 +33,18 @@ class UserList extends Component {
   }
 
   static getDerivedStateFromProps(nextProps, prevState) {
-    if (nextProps.userData && nextProps.userData !== prevState.dataSource) {
+    if (nextProps.list && nextProps.list !== prevState.dataSource) {
       return {
-        dataSource: nextProps.userData
+        dataSource: nextProps.list
       };
     }
     return null; 
+  }
+
+  componentDidMount() {
+    if(this.props.isServer) {
+      this.props.fetchUserListData();
+    }
   }
 
   render() {

@@ -13,7 +13,7 @@ const Home = () => (
     <IfComp
       expression={true}
       trueComp={
-        <div>
+        <div style={{ marginTop: '20px' }}>
           Redux Counter Demo:
           <Counter />
         </div>

@@ -33,7 +33,8 @@ module.exports = withLess({
           path.resolve('pages'),
           path.resolve('utils'),
           path.resolve('constants'),
-          path.resolve('redux')
+          path.resolve('redux'),
+          path.resolve('containers')
         ],
         options: {
           configFile: path.resolve('.eslintrc'),

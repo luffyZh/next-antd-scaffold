@@ -1,16 +1,13 @@
-import { connect } from 'react-redux';
-import UserList from '../../components/User/UserList';
-import { loadData } from '../../redux/actions';
+import UserList from '../../containers/user/UserList';
+import { fetchUserListData } from '../../redux/actions/user';
 
 UserList.getInitialProps = async (props) => {
   const { store, isServer } = props.ctx;
-  if (!store.getState().userData) {
-    store.dispatch(loadData());
+  if (store.getState().user.list.list.length === 0) {
+    store.dispatch(fetchUserListData());
   }
   return { isServer };
 };
 
-const mapStateToProps = ({ userData }) => ({ userData });
-
-export default connect(mapStateToProps)(UserList);
+export default UserList;
 
