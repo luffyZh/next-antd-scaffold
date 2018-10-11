@@ -1,33 +1,22 @@
 import { Component } from 'react';
 import { Table } from 'antd';
 import Link from 'next/link';
-import Layout from '../Layout';
 import { RoleType } from '../../constants/ConstTypes';
-
-const a = 0;
 
 class UserList extends Component {
   constructor(props) {
+
     super(props);
-    this.state = {};
-    this.dataSource = [{
-      key: '1',
-      username: 'luffy',
-      email: 'luffy@126.com',
-      role: 1
-    }, {
-      key: '2',
-      username: 'naruto',
-      email: 'naruto@126.com',
-      role: 10
-    }];
+    this.state = {
+      dataSource: []
+    };
 
     this.columns = [{
       title: '姓名',
       dataIndex: 'username',
       key: 'username',
       render: (text) => (
-        <Link href={`/user/userDetail?username=${text}`} as={`/user/userDetail/${text}`}>
+        <Link href={`/user/userDetail/${text}`}>
           <a>{text}</a>
         </Link>
       )
@@ -43,16 +32,35 @@ class UserList extends Component {
     }];
   }
 
+  static getDerivedStateFromProps(nextProps, prevState) {
+    if (nextProps.list && nextProps.list !== prevState.dataSource) {
+      return {
+        dataSource: nextProps.list
+      };
+    }
+    return null; 
+  }
+
+  componentDidMount() {
+    // refresh page need reload data
+    if(this.props.isServer) {
+      this.props.fetchUserListData();
+    }
+  }
+
   render() {
+    const { dataSource } = this.state;
+    dataSource.map(item => {
+      item.key = item.id;
+      item.role = 10;
+    });
     return (
-      <Layout title='用户列表页'>
-        <Table
-          style={{ minWidth: '600px' }}
-          dataSource={this.dataSource}
-          columns={this.columns}
-          bordered
-        />
-      </Layout>
+      <Table
+        style={{ minWidth: '600px' }}
+        dataSource={dataSource}
+        columns={this.columns}
+        bordered
+      />
     );
   }
 }

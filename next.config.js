@@ -32,7 +32,9 @@ module.exports = withLess({
           path.resolve('components'),
           path.resolve('pages'),
           path.resolve('utils'),
-          path.resolve('constants')
+          path.resolve('constants'),
+          path.resolve('redux'),
+          path.resolve('containers')
         ],
         options: {
           configFile: path.resolve('.eslintrc'),
@@ -43,7 +45,7 @@ module.exports = withLess({
         loader: 'eslint-loader'
       });
       config.devtool = 'source-map';
-  }
+    }
     return config;
   },
   webpackDevMiddleware: config => {
