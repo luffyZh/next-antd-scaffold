@@ -14,10 +14,14 @@
   },
   "rules":{
     "no-console":0,
-    "indent": [2, 2, {
-      "SwitchCase": 1,
-      "ObjectExpression": 1
-    }],
+    "indent": [
+      2,
+      2,
+      {
+        "SwitchCase": 1,
+        "ObjectExpression": 1
+      }
+    ],
     "react/jsx-uses-vars": [2],
     "semi": [1, "always"],
     "linebreak-style": 0,
@@ -26,8 +30,8 @@
     "no-multi-assign": 0,
     "no-lonely-if": 1,
     "no-nested-ternary": 0,
-    "wrap-iife": [2,  "inside"],
-    "jsx-quotes": [2,  "prefer-single"],
+    "wrap-iife": [2, "inside"],
+    "jsx-quotes": [2, "prefer-single"],
     "generator-star-spacing": 0,
     "react/forbid-prop-types": 0,
     "react/sort-comp": 1,

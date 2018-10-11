@@ -42,6 +42,7 @@ class UserList extends Component {
   }
 
   componentDidMount() {
+    // refresh page need reload data
     if(this.props.isServer) {
       this.props.fetchUserListData();
     }
