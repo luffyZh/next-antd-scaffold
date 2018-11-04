@@ -12,6 +12,12 @@ module.exports = withLess({
   lessLoaderOptions: {
     javascriptEnabled: true,
   },
+  exportPathMap: async (defaultPathMap) => {
+    return {
+      '/home': { page: '/' },
+      '/userList': { page: '/user/userList' },
+    }
+  },
   webpack: (config, { buildId, dev, isServer, defaultLoaders }) => {
     if (!dev) {
       config.plugins.push(

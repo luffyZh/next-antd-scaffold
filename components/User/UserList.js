@@ -33,7 +33,7 @@ class UserList extends Component {
   }
 
   static getDerivedStateFromProps(nextProps, prevState) {
-    if (nextProps.list && nextProps.list !== prevState.dataSource) {
+    if (nextProps.list && nextProps.list !== prevState.list) {
       return {
         dataSource: nextProps.list
       };
@@ -44,7 +44,7 @@ class UserList extends Component {
   componentDidMount() {
     // refresh page need reload data
     if(this.props.isServer) {
-      this.props.fetchUserListData();
+      // this.props.fetchUserListData();
     }
   }
 

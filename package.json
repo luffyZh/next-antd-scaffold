@@ -8,12 +8,14 @@
   "scripts": {
     "dev": "node server.js",
     "build": "next build",
-    "start": "set NODE_ENV=production && node server.js"
+    "start": "NODE_ENV=production node server.js",
+    "export": "yarn build && next export"
   },
   "dependencies": {
     "@zeit/next-less": "^0.3.0",
     "antd": "^3.8.4",
     "babel-plugin-import": "^1.8.0",
+    "braft-editor": "^2.1.25",
     "es6-promise": "^4.2.5",
     "express": "^4.16.3",
     "if-comp": "^0.0.8",
