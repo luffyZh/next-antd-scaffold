@@ -37,7 +37,13 @@
     "react/sort-comp": 1,
     "react/no-string-refs": 0,
     "react/prefer-stateless-function": 0,
-    "jsx-a11y/no-static-element-interactions": 0
+    "jsx-a11y/no-static-element-interactions": 0,
+    "keyword-spacing": ["error", { "before": true }],
+    "eqeqeq": ["error", "always"],
+    "space-infix-ops": ["error", {"int32Hint": false}],
+    "comma-spacing": ["error", { "before": false, "after": true }],
+    "block-spacing": "error",
+    "no-else-return": 2
   },
   "extends": "eslint:recommended",
   "plugins": [

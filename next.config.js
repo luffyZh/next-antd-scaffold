@@ -1,7 +1,17 @@
 /* eslint-disable */
 const withLess = require('@zeit/next-less');
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+const lessToJS = require('less-vars-to-js');
+const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
+const fs = require('fs');
 const path = require('path');
+
+// Where your antd-custom.less file lives
+const themeVariables = lessToJS(
+  fs.readFileSync(
+    path.resolve(__dirname, './asserts/antd-custom.less'),
+    'utf8',
+  ),
+);
 
 // fix: prevents error when .css files are required by node
 if (typeof require !== 'undefined') {
@@ -11,6 +21,13 @@ if (typeof require !== 'undefined') {
 module.exports = withLess({
   lessLoaderOptions: {
     javascriptEnabled: true,
+    modifyVars: themeVariables,
+  },
+  exportPathMap: async (defaultPathMap) => {
+    return {
+      '/home': { page: '/' },
+      '/userList': { page: '/user/userList' },
+    }
   },
   webpack: (config, { buildId, dev, isServer, defaultLoaders }) => {
     if (!dev) {
@@ -27,7 +44,6 @@ module.exports = withLess({
       config.module.rules.push({
         test: /\.js$/,
         enforce: 'pre',
-
         include: [
           path.resolve('components'),
           path.resolve('pages'),
@@ -54,4 +70,4 @@ module.exports = withLess({
     // Important: return the modified config
     return config;
   }
-})
+});

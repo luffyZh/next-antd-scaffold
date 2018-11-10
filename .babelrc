@@ -1,7 +1,13 @@
+
 {
   "presets": ["next/babel"],
   "plugins": [
-    "transform-decorators-legacy",
+    [
+      "@babel/plugin-proposal-decorators",
+      {
+        "decoratorsBeforeExport": true
+      }
+    ],
     [
       "import",
       {
