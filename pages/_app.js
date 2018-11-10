@@ -8,7 +8,6 @@ import createStore from '../redux/store';
 import Layout from '../components/Layout';
 import { RouterTitle } from '../constants/ConstTypes';
 import '../asserts/styles.less';
-import ErrorPage from '../components/ErrorPage';
 class InTerViewSystem extends App {
   
   static async getInitialProps ({ Component, ctx }) {
@@ -23,25 +22,37 @@ class InTerViewSystem extends App {
 
   render () {
     const { Component, pageProps, store, router } = this.props;
-    const isError = router.pathname === '/_error';
-    return isError ? <ErrorPage />
-      : (
-        <Fragment>
-          <Head>
-            <meta name='viewport' content='width=device-width, initial-scale=1' />
-            <meta charSet='utf-8' />
-            <title>Next-Antd-Scafflod</title>
-            <link rel='shortcut icon' href='/static/favicon.ico' type='image/ico'/>
-          </Head>
-          <Container>
-            <Provider store={store}>
-              <Layout title={RouterTitle[router.pathname]}>
-                <Component {...pageProps} router={router} />
-              </Layout>
-            </Provider>
-          </Container>
-        </Fragment>
-      );
+    return (
+      <Fragment>
+        <Head>
+          <meta name='viewport' content='width=device-width, initial-scale=1' />
+          <meta charSet='utf-8' />
+          <title>Next-Antd-Scafflod</title>
+          <link rel='shortcut icon' href='/static/favicon.ico' type='image/ico'/>
+          <style jsx global>{`
+            * {
+              margin: 0;
+              padding: 0;
+            }
+            html, body {
+              background-color: #f4f4f5 !important;
+              overflow-y: scroll;
+            }
+            body {
+              font-family: Helvetica, 'Hiragino Sans GB', 'Microsoft Yahei', '微软雅黑', Arial, sans-serif;
+            }
+          `}
+          </style>
+        </Head>
+        <Container>
+          <Provider store={store}>
+            <Layout title={RouterTitle[router.pathname]}>
+              <Component {...pageProps} router={router} />
+            </Layout>
+          </Provider>
+        </Container>
+      </Fragment>
+    );
   }
 }
 

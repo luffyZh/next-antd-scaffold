@@ -22,18 +22,14 @@ class Header extends Component {
     const { title } = this.state;
     return (
       <div className='header-container'>
-        <Link href='/'>
-          <div className='logo-container'>
-            <img className='logo' alt='logo' src='/static/logo.png' />
-            <span className='sys-name'>XXX系统</span>
-          </div>
-        </Link>
-        <h2>{title}</h2>
         <style jsx>{`
           .header-container {
+            position: fixed;
+            top: 0;
+            width: 100%;
             height: 60px;
             background-color: ${color_primary};
-            margin-bottom: 10px;
+            z-index: 999;
           }
           h2 {
             text-align: center;
@@ -63,6 +59,13 @@ class Header extends Component {
             height: 30px;
           }
         `}</style>
+        <Link href='/'>
+          <div className='logo-container'>
+            <img className='logo' alt='logo' src='/static/logo.png' />
+            <span className='sys-name'>XXX系统</span>
+          </div>
+        </Link>
+        <h2>{title}</h2>
       </div>
     );
   }
