@@ -22,12 +22,7 @@ module.exports = withLess({
   lessLoaderOptions: {
     javascriptEnabled: true,
     modifyVars: themeVariables,
-  },
-  exportPathMap: async (defaultPathMap) => {
-    return {
-      '/home': { page: '/' },
-      '/userList': { page: '/user/userList' },
-    }
+    localIdentName: '[local]___[hash:base64:5]',
   },
   webpack: (config, { buildId, dev, isServer, defaultLoaders }) => {
     if (!dev) {
