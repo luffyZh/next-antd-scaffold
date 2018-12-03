@@ -28,8 +28,7 @@
     "react-redux": "^5.0.7",
     "redux": "^4.0.0",
     "redux-logger": "^3.0.6",
-    "redux-saga": "^0.16.0",
-    "terser-webpack-plugin": "^1.1.0"
+    "redux-saga": "^0.16.0"
   },
   "devDependencies": {
     "@babel/plugin-proposal-decorators": "^7.1.0",
@@ -42,6 +41,7 @@
     "eslint-plugin-jsx-a11y": "^6.1.1",
     "eslint-plugin-react": "^7.11.1",
     "redux-devtools-extension": "^2.13.5",
+    "terser-webpack-plugin": "^1.1.0",
     "webpack-bundle-analyzer": "^2.13.1"
   }
 }
