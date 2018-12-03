@@ -2,6 +2,7 @@
 const withLess = require('@zeit/next-less');
 const lessToJS = require('less-vars-to-js');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
+const TerserPlugin = require('terser-webpack-plugin');
 const fs = require('fs');
 const path = require('path');
 
@@ -27,14 +28,28 @@ module.exports = withLess({
   webpack: (config, { buildId, dev, isServer, defaultLoaders }) => {
     if (!dev) {
       config.plugins.push(
-        new BundleAnalyzerPlugin({
-          analyzerMode: 'disabled',
-          // For all options see https://github.com/th0r/webpack-bundle-analyzer#as-plugin
-          generateStatsFile: true,
-          // Will be available at `.next/stats.json`
-          statsFilename: 'stats.json'
-        })
-      );
+        ...[
+          new BundleAnalyzerPlugin({
+            analyzerMode: 'disabled',
+            // For all options see https://github.com/th0r/webpack-bundle-analyzer#as-plugin
+            generateStatsFile: true,
+            // Will be available at `.next/stats.json`
+            statsFilename: 'stats.json'
+          }),
+          // 代替uglyJsPlugin
+          new TerserPlugin({
+            terserOptions: {
+              ecma: 6,
+              warnings: false,
+              extractComments: false, // remove comment
+              compress: {
+                drop_console: true // remove console
+              },
+              ie8: false
+            }
+          }),
+      ]);
+      config.devtool = 'source-map';
     } else {
       config.module.rules.push({
         test: /\.js$/,
@@ -55,7 +70,7 @@ module.exports = withLess({
         },
         loader: 'eslint-loader'
       });
-      config.devtool = 'source-map';
+      config.devtool = 'cheap-module-inline-source-map';
     }
     return config;
   },

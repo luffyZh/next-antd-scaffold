@@ -15,6 +15,7 @@ class Counter extends Component {
 
   render () {
     const { count } = this.props;
+    console.log('测试drop_console');
     return (
       <div>
         <style jsx>{`
