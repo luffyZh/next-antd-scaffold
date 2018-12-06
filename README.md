@@ -4,28 +4,33 @@ A react ssr scafflod with ant-design based on Next.js.
 
 ```
 ——————
-  | -- asserts         // ant-design global less var
-  | -- components      // React UI component
-  | -- constants       // constant directory
+  | -- asserts               // ant-design global less var
+  | -- components            // React UI component
+  | -- constants             // constant directory
       | -- ActionsTypes.js   // save all action type
       | -- ApiUrlForBE.js    // save all apiUrl
       | -- ...
-  | -- containers      // React container component
-  | -- pages           // Next.js routes
+  | -- containers            // React container component
+  | -- core                  // mehtod dirctory
+      | -- util.js           // project method
+      | -- nextFetch.js      // packing unfetch for easy use
+  | -- middlewares           // middlewares
+      | -- client            // client middlewares, deal redux action
+      | -- server            // server middlewares, deal node event
+  | -- pages                 // Next.js routes
   | -- redux
-      | -- actions     // deal all projectaction
-      | -- middlewares // redux status middlewares
-      | -- reducers    // deal all project reducer
-      | -- sagas       // sace all project saga
+      | -- actions           // deal all projectaction
+      | -- reducers          // deal all project reducer
+      | -- sagas             // sace all project saga
       | -- store.js  
-  | -- static          // save static source directory
+  | -- static                // save static source directory
   | -- .babelrc
   | -- .eslintrc
   | -- .gitignore
-  | -- next.config.js  // Next.js config file
+  | -- next.config.js        // Next.js config file
   | -- package.json   
-  | -- server.js       // server file
-  | ...                // other file
+  | -- server.js             // server file
+  | ...                      // other file
 ```
 ## Features
  - react
