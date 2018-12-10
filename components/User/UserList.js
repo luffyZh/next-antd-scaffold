@@ -1,11 +1,15 @@
 import { Component } from 'react';
+import PropTypes from 'prop-types';
 import { Table } from 'antd';
 import Link from 'next/link';
 import { RoleType } from '../../constants/ConstTypes';
 
 class UserList extends Component {
+  static propTypes = {
+    isServer: PropTypes.bool.isRequired,
+    fetchUserListData: PropTypes.func.isRequired
+  }
   constructor(props) {
-
     super(props);
     this.state = {
       dataSource: []

@@ -24,6 +24,7 @@
     "next": "^7.0.2",
     "next-redux-saga": "^3.0.0",
     "next-redux-wrapper": "^2.0.0",
+    "prop-types": "^15.6.2",
     "query-string": "^6.2.0",
     "react": "^16.5.0",
     "react-dom": "^16.5.0",

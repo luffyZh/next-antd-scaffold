@@ -1,8 +1,15 @@
 import { Component } from 'react';
+import PropTypes from 'prop-types';
 import Link from 'next/link';
 import { color_primary } from '../constants/CustomTheme';
 
 class Header extends Component {
+  static propTypes = {
+    title: PropTypes.string
+  }
+  static defaultProps = {
+    title: ''
+  }
   constructor(props) {
     super(props);
     const { title } = props;

@@ -1,8 +1,12 @@
 import { Component } from 'react';
+import PropTypes from 'prop-types';
 import { Button } from 'antd';
 import Router from 'next/router';
 
 class ErrorPage extends Component {
+  static propTypes = {
+    statusCode: PropTypes.number.isRequired
+  }
   render() {
     let RenderComp;
     switch (this.props.statusCode) {

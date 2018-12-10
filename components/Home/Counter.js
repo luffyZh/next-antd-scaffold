@@ -1,6 +1,13 @@
 import { Component } from 'react';
+import PropTypes from 'prop-types';
 import { Button } from 'antd';
 class Counter extends Component {
+  static propTypes = {
+    increment: PropTypes.func.isRequired,
+    decrement: PropTypes.func.isRequired,
+    reset: PropTypes.func.isRequired,
+    count: PropTypes.number.isRequired
+  }
   increment = () => {
     this.props.increment();
   }
