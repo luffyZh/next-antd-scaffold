@@ -1,6 +1,5 @@
 const express = require('express');
 const cp = require('child_process');
-const { parse } = require('url');
 const next = require('next');
 
 const port = parseInt(process.env.PORT, 10) || 3006;
