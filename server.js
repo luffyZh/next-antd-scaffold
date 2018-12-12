@@ -18,17 +18,12 @@ app.prepare()
   .then(() => {
     const server = express();
 
-    server.get('/user/userDetail', (req, res) => {
-      return app.render(req, res, `/user/userDetail/${req.query.username}`);
+    server.get('/user/userDetail/:username', (req, res) => {
+      const { username } = req.params;
+      return app.render(req, res, '/user/userDetail', { username });
     });
 
     server.get('*', (req, res) => {
-      const parsedUrl = parse(req.url, true);
-      const { pathname } = parsedUrl;
-      if (typeof pathname !== 'undefined' && pathname.indexOf('/user/userDetail/') > -1) {
-        const query = { username: pathname.split('/')[3] };
-        return app.render(req, res, '/user/userDetail', query);
-      }
       return handle(req, res);
     });
 

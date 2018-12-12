@@ -5,7 +5,10 @@ import Router from 'next/router';
 
 class ErrorPage extends Component {
   static propTypes = {
-    statusCode: PropTypes.number.isRequired
+    statusCode: PropTypes.number
+  }
+  static defaultProps = {
+    statusCode: 200
   }
   render() {
     let RenderComp;

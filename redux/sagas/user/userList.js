@@ -17,7 +17,6 @@ export function* userList() {
       // const { data } = yield res.json();
       yield put(fetchUserListDataSuccess(data));
     } catch (error) {
-      console.log(error.code, error.message, error.data);
       yield put(fetchUserListDataFali(error));
     }
   }

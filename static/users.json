@@ -1,6 +1,6 @@
 {
-  "errcode": 500,
-  "errmsg": "服务器内部错误",
+  "errcode": 0,
+  "errmsg": "",
   "data": [
     {
       "id": 1,

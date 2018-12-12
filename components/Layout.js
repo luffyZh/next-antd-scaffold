@@ -1,7 +1,8 @@
 import { Fragment } from 'react';
+import PropTypes from 'prop-types';
 import Header from './Header';
 
-export default ({title, children }) => (
+const Layout = ({ title, children }) => (
   <Fragment>
     <style jsx>{`
       .content-container {
@@ -20,5 +21,13 @@ export default ({title, children }) => (
     </div>
   </Fragment>
 );
+export default Layout;
 
+Layout.propTypes = {
+  title: PropTypes.string.isRequired,
+  children: PropTypes.any
+};
 
+Layout.defaultProps = {
+  children: null
+};
