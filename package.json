@@ -6,9 +6,9 @@
   "author": "luffyZhou",
   "license": "MIT",
   "scripts": {
-    "dev": "node server.js",
+    "start": "node server.js",
     "build": "next build",
-    "start": "NODE_ENV=production node server.js"
+    "prod": "NODE_ENV=production node server.js"
   },
   "dependencies": {
     "@zeit/next-less": "^1.0.1",
