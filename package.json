@@ -1,7 +1,7 @@
 {
-  "name": "first-next-demo",
+  "name": "next-antd-scafflod",
   "version": "1.0.0",
-  "description": "first nextjs demo",
+  "description": "A react ssr scafflod with ant-design based on Next.js.",
   "main": "index.js",
   "author": "luffyZhou",
   "license": "MIT",
