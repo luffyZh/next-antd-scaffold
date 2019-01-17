@@ -56,3 +56,7 @@ A react ssr scafflod with ant-design based on Next.js.
  - redux
  - redux-saga
  - ant-design
+ - fetch
+  
+## How to depoly application by pm2
+To be continued...
