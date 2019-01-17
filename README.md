@@ -38,7 +38,7 @@ A react ssr scafflod with ant-design based on Next.js.
  1. git clone https://github.com/luffyZh/next-antd-scafflod.git
  2. yarn install
  3. yarn start
- // The application is ready on http:127.0.0.1:3006
+ // The application is ready on http://127.0.0.1:3006
 ```
 
 #### production
@@ -46,7 +46,7 @@ A react ssr scafflod with ant-design based on Next.js.
 ```
  1. yarn build
  2. yarn prod
- // The application is ready on http:127.0.0.1:3006
+ // The application is ready on http://127.0.0.1:3006
 ```
 > Pm2 is scheduled to be configured for project deployment
 
