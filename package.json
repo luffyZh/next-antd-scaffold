@@ -2,10 +2,15 @@
   "name": "next-antd-scafflod",
   "version": "1.0.0",
   "description": "A react ssr scafflod with ant-design based on Next.js.",
-  "main": "index.js",
-  "author": "luffyZhou",
+  "main": "server.js",
+  "author": "luffyZh",
   "license": "MIT",
+  "lint-staged": {
+    "*.{js,jsx}": ["eslint --no-ignore --fix", "git add --force"],
+    "*.{json,md}": ["prettier --write", "git add --force"]
+  },
   "scripts": {
+    "precommit": "lint-staged",
     "start": "node server.js",
     "build": "next build",
     "prod": "NODE_ENV=production node server.js"
