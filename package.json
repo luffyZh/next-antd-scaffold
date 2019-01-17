@@ -6,8 +6,14 @@
   "author": "luffyZh",
   "license": "MIT",
   "lint-staged": {
-    "*.{js,jsx}": ["eslint --no-ignore --fix", "git add --force"],
-    "*.{json,md}": ["prettier --write", "git add --force"]
+    "*.{js,jsx}": [
+      "eslint --no-ignore --fix",
+      "git add --force"
+    ],
+    "*.{json,md}": [
+      "prettier --write",
+      "git add --force"
+    ]
   },
   "scripts": {
     "precommit": "lint-staged",
@@ -49,6 +55,7 @@
     "eslint-plugin-import": "^2.14.0",
     "eslint-plugin-jsx-a11y": "^6.1.1",
     "eslint-plugin-react": "^7.11.1",
+    "lint-staged": "^8.1.0",
     "redux-devtools-extension": "^2.13.5",
     "terser-webpack-plugin": "^1.1.0",
     "webpack-bundle-analyzer": "^2.13.1"
