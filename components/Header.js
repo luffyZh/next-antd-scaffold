@@ -69,7 +69,7 @@ class Header extends Component {
         <Link href='/'>
           <div className='logo-container'>
             <img className='logo' alt='logo' src='/static/logo.png' />
-            <span className='sys-name'>XXX系统</span>
+            <span className='sys-name'>Next-Antd-Scafflod</span>
           </div>
         </Link>
         <h2>{title}</h2>

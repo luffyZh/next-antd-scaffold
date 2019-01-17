@@ -19,8 +19,6 @@ class ErrorPage extends Component {
           <div className='content-container'>
             <style jsx>{`
               .content-container {
-                position: absolute;
-                top: 0;
                 display: flex;
                 width: 100%;
                 height: 100%;
