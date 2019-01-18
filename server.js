@@ -1,6 +1,7 @@
 const express = require('express');
 const cp = require('child_process');
 const next = require('next');
+const resUserList = require('./static/users.json');
 
 const port = parseInt(process.env.PORT, 10) || 3006;
 // 判断开发环境和生产环境
@@ -16,6 +17,11 @@ const handle = app.getRequestHandler();
 app.prepare()
   .then(() => {
     const server = express();
+
+    // node api
+    server.get('/api/getUserList', (req, res) => {
+      res.json(resUserList);
+    });
 
     server.get('/user/userDetail/:username', (req, res) => {
       const { username } = req.params;

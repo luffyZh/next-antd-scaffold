@@ -22,7 +22,6 @@ class InTerViewSystem extends App {
 
   render () {
     const { Component, pageProps, store, router } = this.props;
-    console.log(router);
     return (
       <Fragment>
         <Head>

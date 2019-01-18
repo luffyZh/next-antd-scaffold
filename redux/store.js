@@ -31,6 +31,15 @@ function configureStore (initialState) {
   };
 
   store.runSagaTask();
+
+  // Hot reload reducers (requires Webpack or Browserify HMR to be enabled)
+  if (process.env.NODE_ENV !== 'production' && module.hot) {
+    module.hot.accept('./reducers', () =>
+      // eslint-disable-next-line global-require
+      store.replaceReducer(require('./reducers').default),
+    );
+  }
+
   return store;
 }
 

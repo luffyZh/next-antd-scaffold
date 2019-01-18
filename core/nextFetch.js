@@ -23,7 +23,7 @@ HTTP_METHOD.forEach(method => {
       },
       credentials: 'include',
       timeout,
-      mode: 'same-origin',
+      mode: 'cors',
       cache: 'no-cache'
     };
 
