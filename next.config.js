@@ -79,5 +79,12 @@ module.exports = withLess({
     // console.log(config, '@@')
     // Important: return the modified config
     return config;
+  },
+  serverRuntimeConfig: { // Will only be available on the server side
+    rootDir: path.join(__dirname, './')
+  },
+  publicRuntimeConfig: { // Will be available on both server and client
+    staticFolder: '/static',
+    isDev: process.env.NODE_ENV !== 'production' // Pass through env variables
   }
 });

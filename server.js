@@ -2,14 +2,12 @@ const express = require('express');
 const cp = require('child_process');
 const next = require('next');
 const resUserList = require('./static/users.json');
+const { publicRuntimeConfig } = require('./next.config');
 
 const port = parseInt(process.env.PORT, 10) || 3006;
-// 判断开发环境和生产环境
-process.env.NODE_ENV = (typeof process.env.NODE_ENV !== 'undefined')
-  ? process.env.NODE_ENV.trim()
-  : 'development';
 
-const dev = process.env.NODE_ENV !== 'production';
+// 判断开发环境和生产环境
+const dev = publicRuntimeConfig.isDev;
 
 const app = next({ dev });
 const handle = app.getRequestHandler();
