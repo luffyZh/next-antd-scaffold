@@ -4,10 +4,12 @@ const next = require('next');
 const resUserList = require('./static/users.json');
 const { publicRuntimeConfig } = require('./next.config');
 
-const port = parseInt(process.env.PORT, 10) || 3006;
+const { isDev, PORT } = publicRuntimeConfig;
+
+const port = PORT || 3006;
 
 // 判断开发环境和生产环境
-const dev = publicRuntimeConfig.isDev;
+const dev = isDev;
 
 const app = next({ dev });
 const handle = app.getRequestHandler();
@@ -17,8 +19,9 @@ app.prepare()
     const server = express();
 
     // node api
-    server.get('/api/getUserList', (req, res) => {
+    server.get('/api/getUserList', (req, res, next) => {
       res.json(resUserList);
+      next();
     });
 
     server.get('/user/userDetail/:username', (req, res) => {

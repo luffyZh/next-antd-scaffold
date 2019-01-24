@@ -22,18 +22,22 @@ A react ssr scafflod with ant-design based on Next.js.
       | -- actions           // deal all projectaction
       | -- reducers          // deal all project reducer
       | -- sagas             // sace all project saga
-      | -- store.js  
+      | -- store.js
   | -- static                // save static source directory
   | -- .babelrc
   | -- .eslintrc
   | -- .gitignore
   | -- next.config.js        // Next.js config file
-  | -- package.json   
+  | -- package.json
   | -- server.js             // server file
+  | -- pm2.config.js         // pm2 deploy config file
   | ...                      // other file
 ```
+
 ## Usage
+
 #### development
+
 ```
  1. git clone https://github.com/luffyZh/next-antd-scafflod.git
  2. yarn install
@@ -48,15 +52,27 @@ A react ssr scafflod with ant-design based on Next.js.
  2. yarn prod
  // The application is ready on http://127.0.0.1:3006
 ```
+
 > Pm2 is scheduled to be configured for project deployment
 
 ## Features
- - react
- - Next.js
- - redux
- - redux-saga
- - ant-design
- - fetch
-  
+
+- react
+- Next.js
+- redux
+- redux-saga
+- ant-design
+- fetch
+
 ## How to depoly application by pm2
-To be continued...
+
+```bash
+# 1. install pm2
+$ npm install -g pm2
+
+# 2. build project
+$ yarn build
+
+# 3. pm2 deploy project
+$ pm2 start pm2.config.js --env production
+```

@@ -34,10 +34,6 @@ class InTerViewSystem extends App {
               margin: 0;
               padding: 0;
             }
-            html, body {
-              background-color: #f4f4f5 !important;
-              overflow-y: scroll;
-            }
             body {
               font-family: Helvetica, 'Hiragino Sans GB', 'Microsoft Yahei', '微软雅黑', Arial, sans-serif;
             }
