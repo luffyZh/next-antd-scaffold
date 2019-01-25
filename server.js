@@ -1,7 +1,6 @@
 const express = require('express');
 const cp = require('child_process');
 const next = require('next');
-const resUserList = require('./static/users.json');
 const { publicRuntimeConfig } = require('./next.config');
 
 const { isDev, PORT } = publicRuntimeConfig;
@@ -17,12 +16,6 @@ const handle = app.getRequestHandler();
 app.prepare()
   .then(() => {
     const server = express();
-
-    // node api
-    server.get('/api/getUserList', (req, res, next) => {
-      res.json(resUserList);
-      next();
-    });
 
     server.get('/user/userDetail/:username', (req, res) => {
       const { username } = req.params;

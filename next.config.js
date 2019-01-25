@@ -86,7 +86,6 @@ module.exports = withLess({
   publicRuntimeConfig: { // Will be available on both server and client
     staticFolder: '/static',
     isDev: process.env.NODE_ENV !== 'production', // Pass through env variables
-    NODE_HOST: 'http://127.0.0.1',
     PORT: process.env.PORT || 3006
   }
 });

@@ -7,12 +7,14 @@ import { RoleType } from '../../constants/ConstTypes';
 class UserList extends Component {
   static propTypes = {
     isServer: PropTypes.bool.isRequired,
-    fetchUserListData: PropTypes.func.isRequired
+    fetchUserListData: PropTypes.func.isRequired,
+    list: PropTypes.array.isRequired
   }
   constructor(props) {
     super(props);
+    const { list } = props;
     this.state = {
-      dataSource: []
+      dataSource: list
     };
 
     this.columns = [{
@@ -43,13 +45,6 @@ class UserList extends Component {
       };
     }
     return null; 
-  }
-
-  componentDidMount() {
-    // refresh page need reload data
-    if (this.props.isServer) {
-      this.props.fetchUserListData();
-    }
   }
 
   render() {
