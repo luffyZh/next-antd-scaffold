@@ -55,8 +55,6 @@ A react ssr scafflod with ant-design based on Next.js.
 
 > The application is ready on http://127.0.0.1:5000
 
-> Pm2 is scheduled to be configured for project deployment
-
 ## Features
 
 - React
