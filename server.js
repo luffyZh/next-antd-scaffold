@@ -1,11 +1,10 @@
 const express = require('express');
 const cp = require('child_process');
 const next = require('next');
-const { publicRuntimeConfig } = require('./next.config');
+const { publicRuntimeConfig, serverRuntimeConfig } = require('./next.config');
 
-const { isDev, PORT } = publicRuntimeConfig;
-
-const port = PORT || 3006;
+const { isDev } = publicRuntimeConfig;
+const { PORT } = serverRuntimeConfig;
 
 // 判断开发环境和生产环境
 const dev = isDev;
@@ -26,9 +25,9 @@ app.prepare()
       return handle(req, res);
     });
 
-    server.listen(port, (err) => {
+    server.listen(PORT, (err) => {
       if (err) throw err;
-      const serverUrl = `http:127.0.0.1:${port}`;
+      const serverUrl = `http:127.0.0.1:${PORT}`;
       console.log(`> Ready on ${serverUrl}`);
       // 开发环境自动启动
       if (dev) {

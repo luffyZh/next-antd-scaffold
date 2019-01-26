@@ -81,11 +81,11 @@ module.exports = withLess({
     return config;
   },
   serverRuntimeConfig: { // Will only be available on the server side
-    rootDir: path.join(__dirname, './')
+    rootDir: path.join(__dirname, './'),
+    PORT: process.env.NODE_ENV !== 'production' ? 3006 : (process.env.PORT || 5000)
   },
   publicRuntimeConfig: { // Will be available on both server and client
     staticFolder: '/static',
-    isDev: process.env.NODE_ENV !== 'production', // Pass through env variables
-    PORT: process.env.PORT || 3006
+    isDev: process.env.NODE_ENV !== 'production' // Pass through env variables
   }
 });
