@@ -1,5 +1,6 @@
+const envConfig = require('./env.config.js');
 
-{
+module.exports = {
   "presets": ["next/babel"],
   "plugins": [
     [
@@ -15,6 +16,7 @@
         "style": true
       }
     ],
-    ["lodash"]
+    ["lodash"],
+    ["transform-define", envConfig]
   ]
-}
+};
