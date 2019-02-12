@@ -24,10 +24,11 @@ const Layout = ({ title, children }) => (
 export default Layout;
 
 Layout.propTypes = {
-  title: PropTypes.string.isRequired,
+  title: PropTypes.string,
   children: PropTypes.any
 };
 
 Layout.defaultProps = {
+  title: '',
   children: null
 };

@@ -87,5 +87,8 @@ module.exports = withLess({
   publicRuntimeConfig: { // Will be available on both server and client
     staticFolder: '/static',
     isDev: process.env.NODE_ENV !== 'production' // Pass through env variables
+  },
+  env: {
+    SERVER_HOST: 'http://www.luffyzhou.cn'
   }
 });
