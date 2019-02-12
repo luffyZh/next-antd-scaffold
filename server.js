@@ -1,15 +1,13 @@
 const express = require('express');
 const cp = require('child_process');
 const next = require('next');
-const { publicRuntimeConfig, serverRuntimeConfig } = require('./next.config');
+const { publicRuntimeConfig, env } = require('./next.config');
 const router = require('./backend/routes');
 
 const { isDev } = publicRuntimeConfig;
-const { PORT } = serverRuntimeConfig;
+const { PORT } = env;
 
-// 判断开发环境和生产环境
 const dev = isDev;
-
 const app = next({ dev });
 const handle = app.getRequestHandler();
 

@@ -16,12 +16,10 @@ module.exports = {
       instances: 2,  // 启动2个实例
       node_args: '--harmony',
       env: {
-        NODE_ENV: 'development',
-        PORT: 3006
+        NODE_ENV: 'development'
       },
       env_production: {
-        NODE_ENV: 'production',
-        PORT: 5000
+        NODE_ENV: 'production'
       },
       out_file: './logs/out.log', // 普通日志路径
       error_file: './logs/err.log', // 错误日志路径

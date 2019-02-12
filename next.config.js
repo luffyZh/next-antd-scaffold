@@ -81,12 +81,14 @@ module.exports = withLess({
     return config;
   },
   serverRuntimeConfig: { // Will only be available on the server side
-    rootDir: path.join(__dirname, './'),
-    NODE_HOST: 'http://localhost',
-    PORT: process.env.NODE_ENV !== 'production' ? 3006 : (process.env.PORT || 5000)
+    rootDir: path.join(__dirname, './')
   },
   publicRuntimeConfig: { // Will be available on both server and client
     staticFolder: '/static',
     isDev: process.env.NODE_ENV !== 'production' // Pass through env variables
+  },
+  env: {
+    NODE_HOST: 'http://localhost',
+    PORT: process.env.NODE_ENV !== 'production' ? 3006 : 5000
   }
 });
