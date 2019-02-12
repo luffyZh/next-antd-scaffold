@@ -16,9 +16,6 @@ module.exports = {
       instances: 2,  // 启动2个实例
       node_args: '--harmony',
       env: {
-        NODE_ENV: 'development'
-      },
-      env_production: {
         NODE_ENV: 'production'
       },
       out_file: './logs/out.log', // 普通日志路径
