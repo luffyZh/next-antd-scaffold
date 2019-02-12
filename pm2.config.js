@@ -16,10 +16,6 @@ module.exports = {
       instances: 2,  // 启动2个实例
       node_args: '--harmony',
       env: {
-        NODE_ENV: 'development',
-        PORT: 3006
-      },
-      env_production: {
         NODE_ENV: 'production',
         PORT: 5000
       },

@@ -75,5 +75,5 @@ $ npm install -g pm2
 $ yarn build
 
 # 3. pm2 deploy project
-$ pm2 start pm2.config.js --env production
+$ pm2 start pm2.config.js
 ```
