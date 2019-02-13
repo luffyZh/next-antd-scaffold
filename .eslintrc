@@ -45,10 +45,12 @@
     "space-infix-ops": [2, {"int32Hint": false}],
     "comma-spacing": [2, { "before": false, "after": true }],
     "block-spacing": [2, "always"],
-    "no-else-return": 2
+    "no-else-return": 2,
+    "react-hooks/rules-of-hooks": 2
   },
   "extends": "eslint:recommended",
   "plugins": [
-    "react"
+    "react",
+    "react-hooks"
   ]
 }

@@ -3,10 +3,13 @@ import { Button } from 'antd';
 import Link from 'next/link';
 import IfComp from 'if-comp';
 import Counter from '../../containers/home/counter';
+import StateHooks from './StateHooks';
+import EffectHooks from './EffectHooks';
+import ReducerHooks from './ReducerHooks';
 
 const Home = () => (
   <Fragment>
-    <h1>Hello Next.js</h1>
+    <h1>React-Hooks</h1>
     <Link href='/user/userList'>
       <Button type='primary'>用户列表页</Button>
     </Link>
@@ -19,6 +22,9 @@ const Home = () => (
         </div>
       }
     />
+    <StateHooks />
+    <EffectHooks />
+    <ReducerHooks initialCount={26} />
   </Fragment>
 );
 export default Home;
