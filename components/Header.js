@@ -1,4 +1,3 @@
-import { Component } from 'react';
 import PropTypes from 'prop-types';
 import Link from 'next/link';
 import getConfig from 'next/config';
@@ -7,33 +6,11 @@ import { color_primary } from '../constants/CustomTheme';
 // Only holds serverRuntimeConfig and publicRuntimeConfig from next.config.js nothing else.
 const { publicRuntimeConfig: { staticFolder } } = getConfig();
 
-class Header extends Component {
-  static propTypes = {
-    title: PropTypes.string
-  }
-  static defaultProps = {
-    title: ''
-  }
-  constructor(props) {
-    super(props);
-    const { title } = props;
-    this.state = { title };
-  }
-
-  static getDerivedStateFromProps(nextProps, prevState) {
-    if (nextProps.title !== prevState.title) {
-      return {
-        title: nextProps.title
-      };
-    }
-    return null;
-  }
-
-  render() {
-    const { title } = this.state;
-    return (
-      <div className='header-container'>
-        <style jsx>{`
+function Header(props) {
+  const { title } = props;
+  return (
+    <div className='header-container'>
+      <style jsx>{`
           .header-container {
             position: fixed;
             top: 0;
@@ -70,16 +47,23 @@ class Header extends Component {
             height: 30px;
           }
         `}</style>
-        <Link href='/'>
-          <div className='logo-container'>
-            <img className='logo' alt='logo' src={`${staticFolder}/logo.png`} />
-            <span className='sys-name'>Next-Antd-Scafflod</span>
-          </div>
-        </Link>
-        <h2>{title}</h2>
-      </div>
-    );
-  }
+      <Link href='/'>
+        <div className='logo-container'>
+          <img className='logo' alt='logo' src={`${staticFolder}/logo.png`} />
+          <span className='sys-name'>Next-Antd-Scafflod</span>
+        </div>
+      </Link>
+      <h2>{title}</h2>
+    </div>
+  );
 }
 
 export default Header;
+
+Header.propTypes = {
+  title: PropTypes.string
+};
+
+Header.defaultProps = {
+  title: ''
+};

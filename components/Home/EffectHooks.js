@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Button } from 'antd';
 
-const EffectHooks = () => {
+export default function () {
   // Declare a new state variable, which we'll call "count" and intital value is 0
   const [count, setCount] = useState(0);
   // Similar to componentDidMount and componentDidUpdate:
@@ -23,12 +23,11 @@ const EffectHooks = () => {
           margin: 10px 0;
         }
       `}</style>
+      <h2>Effect Hooks</h2>
       <span className='text'>You clicked {count} times</span>
       <Button onClick={() => setCount(() => count + 1 > 5 ? 5 : count + 1)} type='primary'>
         Click me
       </Button>
     </div>
   );
-};
-
-export default EffectHooks;
+}

@@ -1,4 +1,5 @@
 import { useReducer } from 'react';
+import PropTypes from 'prop-types';
 import { Button } from 'antd';
 
 function reducer(state, action) {
@@ -12,17 +13,33 @@ function reducer(state, action) {
   }
 }
 
-export default function ({ initialCount = 0 }) {
+function ReducerHooks({ initialCount = 0 }) {
   const initialState = {
     count: initialCount
   };
   const [state, dispatch] = useReducer(reducer, initialState);
   return (
     <>
-      <h2>ReducerHooks</h2>
-      Count: {state.count}
-      <Button onClick={() => dispatch({type: 'increment'})}>+</Button>
-      <Button onClick={() => dispatch({type: 'decrement'})}>-</Button>
+      <style jsx>{`
+        span {
+          display: inline-block;
+          margin: 0 10px;
+        }
+        .reducer-container {
+          display: flex;
+        }
+      `}</style>
+      <h2>Reducer Hooks</h2>
+      <div className='reducer-container'>
+        <Button onClick={() => dispatch({type: 'decrement'})}>-</Button>
+        <span>Count: {state.count}</span>
+        <Button onClick={() => dispatch({type: 'increment'})}>+</Button>
+      </div>
     </>
   );
 }
+export default ReducerHooks;
+
+ReducerHooks.propTypes = {
+  initialCount: PropTypes.number.isRequired
+};

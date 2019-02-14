@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Button } from 'antd';
 
-const StateHooks = () => {
+export default function () {
   // Declare a new state variable, which we'll call "count" and intital value is 0
   const [count, setCount] = useState(0);
 
@@ -22,6 +22,4 @@ const StateHooks = () => {
       </Button>
     </div>
   );
-};
-
-export default StateHooks;
+}
