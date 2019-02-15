@@ -1,13 +1,17 @@
 import { useState, useEffect } from 'react';
-import { Button } from 'antd';
 
 export default function () {
   // Declare a new state variable, which we'll call "count" and intital value is 0
-  const [count, setCount] = useState(0);
+  const [time, setTime] = useState(0);
+
   // Similar to componentDidMount and componentDidUpdate:
   useEffect(() => {
-    // Update the document title using the browser API
-    document.title = `You clicked ${count} times`;
+    let timer = null;
+    if (time < 100) {
+      // Update the document title using the browser API
+      timer = setInterval(() => setTime(time + 1), 1000);
+    }
+    return () => clearInterval(timer);
   });
 
   return (
@@ -24,10 +28,7 @@ export default function () {
         }
       `}</style>
       <h2>Effect Hooks</h2>
-      <span className='text'>You clicked {count} times</span>
-      <Button onClick={() => setCount(() => count + 1 > 5 ? 5 : count + 1)} type='primary'>
-        Click me
-      </Button>
+      <span className='text'>The time is {time} second</span>
     </div>
   );
 }

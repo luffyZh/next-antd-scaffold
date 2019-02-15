@@ -4,6 +4,7 @@ import Link from 'next/link';
 import StateHooks from './StateHooks';
 import EffectHooks from './EffectHooks';
 import ReducerHooks from './ReducerHooks';
+import RefHooks from './RefHooks';
 import ReduxHooks from '../../containers/home/counter';
 
 const Home = () => (
@@ -15,6 +16,7 @@ const Home = () => (
     <StateHooks />
     <EffectHooks />
     <ReducerHooks initialCount={26} />
+    <RefHooks />
     <ReduxHooks />
   </Fragment>
 );

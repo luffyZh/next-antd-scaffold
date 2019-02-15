@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 import { Button } from 'antd';
 
 function ReduxHooks(props) {
+
   const { increment, decrement, reset, count } = props;
 
   return (
