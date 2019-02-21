@@ -25,6 +25,14 @@
     "build": "next build",
     "prod": "NODE_ENV=production node server.js"
   },
+  "keywords": [
+    "next",
+    "antd",
+    "react",
+    "ssr",
+    "redux",
+    "redux-saga"
+  ],
   "dependencies": {
     "@zeit/next-less": "^1.0.1",
     "antd": "^3.8.4",
