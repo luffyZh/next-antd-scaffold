@@ -17,7 +17,7 @@ export function fetchUserListDataSuccess (payload) {
   };
 }
 
-export function fetchUserListDataFali () {
+export function fetchUserListDataFail () {
   return {
     type: FETCH_USER_LIST_FAIL,
   };
