@@ -88,7 +88,7 @@ module.exports = withLess({
     isDev: process.env.NODE_ENV !== 'production' // Pass through env variables
   },
   env: {
-    NODE_HOST: 'http://localhost',
+    API_HOST: 'http://localhost',
     PORT: process.env.NODE_ENV !== 'production' ? 3006 : 5000
   }
 });

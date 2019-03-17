@@ -1,4 +1,4 @@
-const apiServer = `${process.env.NODE_HOST}:${process.env.PORT}/api`;
+const apiServer = `${process.env.API_HOST}:${process.env.PORT}/api`;
 // const API url
 export default {
   /**
