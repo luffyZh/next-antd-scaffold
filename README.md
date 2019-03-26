@@ -1,5 +1,5 @@
 ![](https://user-gold-cdn.xitu.io/2019/1/26/16889da2c2c4c0ac?imageView2/1/w/1304/h/734/q/85/interlace/1)
-A react ssr scafflod with ant-design based on Next.js.
+A simple scaffold based on Next.js for quick use with ant-design, redux, redux-saga, fetch and pm2.
 
 ## Directory
 

@@ -21,23 +21,6 @@ export function* userList() {
   }
 }
 
-/**
- * 合理的官方写法，分离了watcher saga和worker saga
- */
-// // worker saga
-// export function* getUserList() {
-//   try {
-//     const { data } = yield call(http.get, apiUrl.USER_LIST);
-//     yield put({ type: FETCH_ALL_USER_LIST_SUCCESS, payload: data });
-//   } catch(error) {
-//     yield put({ type: FETCH_ALL_USER_LIST_FAIL, payload: error });
-//   }
-// }
-// // watcher saga
-// export function* watchGetUserList() {
-//   yield takeEvery(FETCH_ALL_USER_LIST, getUserList);
-// }
-
 export default [
   fork(userList)
 ];
