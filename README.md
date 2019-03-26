@@ -54,7 +54,7 @@ A react ssr scafflod with ant-design based on Next.js.
  2. yarn prod
 ```
 
-> The application is ready on http://localhost:5000
+> The application is ready on http://localhost:5999
 
 ## Features
 

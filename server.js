@@ -25,7 +25,7 @@ app.prepare()
       return handle(req, res);
     });
 
-    server.listen(PORT, (err) => {
+    server.listen(PORT, err => {
       if (err) throw err;
       const serverUrl = `http://localhost:${PORT}`;
       console.log(`> Ready on ${serverUrl}`);

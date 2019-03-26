@@ -9,7 +9,7 @@ const path = require('path');
 // Where your antd-custom.less file lives
 const themeVariables = lessToJS(
   fs.readFileSync(
-    path.resolve(__dirname, './asserts/antd-custom.less'),
+    path.resolve(__dirname, './assets/antd-custom.less'),
     'utf8',
   ),
 );
@@ -82,7 +82,7 @@ module.exports = withLess({
   },
   serverRuntimeConfig: { // Will only be available on the server side
     rootDir: path.join(__dirname, './'),
-    PORT: process.env.NODE_ENV !== 'production' ? 3006 : (process.env.PORT || 5000)
+    PORT: process.env.NODE_ENV !== 'production' ? 3006 : (process.env.PORT || 5999)
   },
   publicRuntimeConfig: { // Will be available on both server and client
     staticFolder: '/static',
