@@ -7,7 +7,7 @@ import Counter from '../../containers/home/counter';
 const Home = () => (
   <Fragment>
     <h1>Hello Next.js</h1>
-    <Link href='/user/userList'>
+    <Link prefetch href='/user/userList'>
       <Button type='primary'>用户列表页</Button>
     </Link>
     <IfComp
