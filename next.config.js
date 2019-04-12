@@ -20,6 +20,7 @@ if (typeof require !== 'undefined') {
 }
 
 module.exports = withLess({
+  target: 'serverless',
   lessLoaderOptions: {
     javascriptEnabled: true,
     modifyVars: themeVariables,
@@ -79,14 +80,6 @@ module.exports = withLess({
     // console.log(config, '@@')
     // Important: return the modified config
     return config;
-  },
-  serverRuntimeConfig: { // Will only be available on the server side
-    rootDir: path.join(__dirname, './'),
-    PORT: process.env.NODE_ENV !== 'production' ? 3006 : (process.env.PORT || 5999)
-  },
-  publicRuntimeConfig: { // Will be available on both server and client
-    staticFolder: '/static',
-    isDev: process.env.NODE_ENV !== 'production' // Pass through env variables
   },
   env: {
     SERVER_HOST: 'http://www.luffyzhou.cn'

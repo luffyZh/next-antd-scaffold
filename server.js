@@ -1,13 +1,10 @@
 const express = require('express');
 const cp = require('child_process');
 const next = require('next');
-const { publicRuntimeConfig, serverRuntimeConfig } = require('./next.config');
-
-const { isDev } = publicRuntimeConfig;
-const { PORT } = serverRuntimeConfig;
 
 // 判断开发环境和生产环境
-const dev = isDev;
+const dev = process.env.NODE_ENV !== 'production';
+const PORT = dev ? 3006 : 5000;
 
 const app = next({ dev });
 const handle = app.getRequestHandler();

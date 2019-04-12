@@ -23,7 +23,8 @@
   "scripts": {
     "start": "node server.js",
     "build": "next build",
-    "prod": "NODE_ENV=production node server.js"
+    "prod": "NODE_ENV=production node server.js",
+    "now-build": "next build"
   },
   "keywords": [
     "nextjs",
