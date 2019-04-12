@@ -1,6 +1,9 @@
 ![](https://user-gold-cdn.xitu.io/2019/1/26/16889da2c2c4c0ac?imageView2/1/w/1304/h/734/q/85/interlace/1)
 A simple scaffold based on Next.js for quick use with ant-design, redux, redux-saga, fetch and pm2.
 
+[![Deploy Status](https://circleci.com/gh/zeit/now-desktop.svg?style=shield)](https://next-antd-scaffold.luffyzh.now.sh/)
+[![Join the community on Spectrum](https://withspectrum.github.io/badge/badge.svg)](https://spectrum.chat/zeit)
+
 ## Directory
 
 ```
@@ -77,3 +80,7 @@ $ yarn build
 # 3. pm2 deploy project
 $ pm2 start pm2.config.js
 ```
+
+## Deploy By now
+
+<a target='__blank' href='https://zeit.co/now'><img src='https://avatars3.githubusercontent.com/in/8329?s=60&u=35934eb25f938206da3c68530ac900e2717abbc3&v=4' /></a>
