@@ -1,0 +1,5 @@
+{
+  "version": 2,
+  "name": "next-antd-scaffold",
+  "builds": [{ "src": "package.json", "use": "@now/next" }]
+}
