@@ -33,8 +33,8 @@ class ErrorPage extends Component {
               }
             `}</style>
             <img className='error-image' alt='error-img' src='/static/empty.png' />
-            <h3>您访问的页面不存在，请确认地址准确～</h3>
-            <Button onClick={() => Router.push('/')} type='primary' ghost>返回首页</Button>
+            <h3>The page is not found | 404～</h3>
+            <Button onClick={() => Router.push('/')} type='primary' ghost>Back Home</Button>
           </div>
         );
         break;
@@ -60,8 +60,8 @@ class ErrorPage extends Component {
               }
             `}</style>
             <img className='error-image' alt='error-img' src='/static/unknown_error.png' />
-            <h3>您访问的页面出现未知错误，程序员小哥正在加紧修复～</h3>
-            <Button onClick={() => Router.push('/')} type='primary' ghost>返回首页</Button>
+            <h3>The page is error | 500～</h3>
+            <Button onClick={() => Router.push('/')} type='primary' ghost>Back Home</Button>
           </div>
         );
         break;

@@ -8,7 +8,7 @@ const Home = () => (
   <Fragment>
     <h1>Hello Next.js</h1>
     <Link prefetch href='/user/userList'>
-      <Button type='primary'>用户列表页</Button>
+      <Button type='primary'>UserList Page</Button>
     </Link>
     <IfComp
       expression={true}

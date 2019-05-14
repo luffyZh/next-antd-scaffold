@@ -18,7 +18,7 @@ class UserList extends Component {
     };
 
     this.columns = [{
-      title: '姓名',
+      title: 'Username',
       dataIndex: 'username',
       key: 'username',
       render: (text) => (
@@ -27,11 +27,11 @@ class UserList extends Component {
         </Link>
       )
     }, {
-      title: '邮箱',
+      title: 'Email',
       dataIndex: 'email',
       key: 'email',
     }, {
-      title: '角色',
+      title: 'Role',
       dataIndex: 'role',
       key: 'role',
       render: (text) => <span>{RoleType[text]}</span>

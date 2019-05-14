@@ -1,9 +1,9 @@
-// ================= 首页部分 ==================== //
+// ================= Home Part ==================== //
 export const INCREMENT = 'INCREMENT';
 export const DECREMENT = 'DECREMENT';
 export const RESET = 'RESET';
 
-// ================= 用户部分 ==================== //
+// ================= User Part ==================== //
 
 export const FETCH_USER_LIST = 'FETCH_USER_LIST';
 export const FETCH_USER_LIST_FAIL = 'FETCH_USER_LIST_FAIL';
