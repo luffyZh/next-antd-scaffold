@@ -8,7 +8,7 @@ A simple scaffold based on Next.js for quick use with ant-design, redux, redux-s
 
 ```
 ——————
-  | -- asserts               // ant-design global less var
+  | -- assets               // ant-design global less var
   | -- components            // React UI component
   | -- constants             // constant directory
       | -- ActionsTypes.js   // save all action type
@@ -35,7 +35,7 @@ A simple scaffold based on Next.js for quick use with ant-design, redux, redux-s
   | -- package.json
   | -- server.js             // server file
   | -- pm2.config.js         // pm2 deploy config file
-  | ...                      // other file
+  | ...                      // other files
 ```
 
 ## Usage
