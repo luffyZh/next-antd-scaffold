@@ -5,13 +5,16 @@ A react ssr scafflod with ant-design based on Next.js.
 ```
 ——————
   | -- asserts               // ant-design global less var
+  | -- backend               // node backend
+      | -- db                // the directory of db
+      | -- routes            // the backend routes
   | -- components            // React UI component
   | -- constants             // constant directory
       | -- ActionsTypes.js   // save all action type
       | -- ApiUrlForBE.js    // save all apiUrl
       | -- ...
   | -- containers            // React container component
-  | -- core                  // mehtod dirctory
+  | -- core                  // mehtod directory
       | -- util.js           // project method
       | -- nextFetch.js      // packing unfetch for easy use
   | -- middlewares           // middlewares

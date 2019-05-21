@@ -16,7 +16,7 @@ app.prepare()
     const server = express();
 
     // 路由中间件
-    server.use('/api', router); //添加router中间件
+    server.use('/api', router); // 添加router中间件
 
     server.get('/user/userDetail/:username', (req, res) => {
       const { username } = req.params;
