@@ -88,6 +88,7 @@ $ pm2 start pm2.config.js
 ## More Questions
 
 - How to use cssModules in this scaffold?
+
 - How to listen for routing changes?
 
-Please check the [Faq documentation]('./docs/FAQ.md')
+Please check the [Faq documentation](./docs/FAQ.md)

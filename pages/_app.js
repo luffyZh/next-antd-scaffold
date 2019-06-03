@@ -1,7 +1,6 @@
 import { Fragment } from 'react';
 import App, { Container } from 'next/app';
 import Head from 'next/head';
-import Router from 'next/router';
 import { Provider } from 'react-redux';
 import withRedux from 'next-redux-wrapper';
 import withReduxSaga from 'next-redux-saga';
@@ -10,10 +9,6 @@ import Layout from '../components/Layout';
 import { RouterTitle } from '../constants/ConstTypes';
 import '../assets/self-styles.less';
 
-// Listen the route path change
-Router.events.on('routeChangeStart', (path) => {
-  console.log('route start change, the next route is:', path);
-});
 
 class InTerViewSystem extends App {
   
