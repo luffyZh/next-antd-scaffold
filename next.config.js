@@ -14,6 +14,20 @@ const themeVariables = lessToJS(
   ),
 );
 
+const isDev = process.env.NODE_ENV !== 'production';
+
+// fix antd bug in dev development
+const devAntd = '@import "~antd/dist/antd.less";\n';
+const stylesData = fs.readFileSync(
+  path.resolve(__dirname, './assets/_styles.less'),
+  'utf-8'
+);
+fs.writeFileSync(
+  path.resolve(__dirname, './assets/self-styles.less'),
+  isDev ? `${devAntd}${stylesData}` : stylesData,
+  'utf-8'
+);
+
 // fix: prevents error when .css files are required by node
 if (typeof require !== 'undefined') {
   require.extensions['.less'] = (file) => {}
@@ -82,11 +96,11 @@ module.exports = withLess({
   },
   serverRuntimeConfig: { // Will only be available on the server side
     rootDir: path.join(__dirname, './'),
-    PORT: process.env.NODE_ENV !== 'production' ? 3006 : (process.env.PORT || 5999)
+    PORT: isDev ? 3006 : (process.env.PORT || 5999)
   },
   publicRuntimeConfig: { // Will be available on both server and client
     staticFolder: '/static',
-    isDev: process.env.NODE_ENV !== 'production' // Pass through env variables
+    isDev, // Pass through env variables
   },
   env: {
     SERVER_HOST: 'http://www.luffyzhou.cn'

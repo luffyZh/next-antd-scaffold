@@ -1,17 +1,13 @@
 import { Fragment } from 'react';
 import App, { Container } from 'next/app';
 import Head from 'next/head';
-import getConfig from 'next/config';
 import { Provider } from 'react-redux';
 import withRedux from 'next-redux-wrapper';
 import withReduxSaga from 'next-redux-saga';
 import createStore from '../redux/store';
 import Layout from '../components/Layout';
 import { RouterTitle } from '../constants/ConstTypes';
-// fix dev env antd table bugs
-getConfig().publicRuntimeConfig.isDev
-  ? import('../assets/styles_dev.less')
-  : import('../assets/styles_prod.less');
+import '../assets/self-styles.less';
 
 class InTerViewSystem extends App {
   
