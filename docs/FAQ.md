@@ -31,3 +31,22 @@ const Component = props => {
 
 export default Component;
 ```
+
+## How to listen for routing changes?
+
+The router of next provide some APIs that are used to listen for routing changes for us.
+`For example: beforeHistoryChange, routeChangeComplete...`
+
+```
+// _app.js
+
+import Router from 'next/router';
+...
+// Listen the route path change
+Router.events.on('routeChangeStart', (path) => {
+  console.log('route start change, the next route is:', path);
+  // do something what you want to do.
+  ...
+});
+
+```
