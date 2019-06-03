@@ -11,7 +11,7 @@ const themeVariables = lessToJS(
   fs.readFileSync(
     path.resolve(__dirname, './assets/antd-custom.less'),
     'utf8',
-  ),
+  )
 );
 
 const isDev = process.env.NODE_ENV !== 'production';
