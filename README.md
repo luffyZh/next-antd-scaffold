@@ -84,3 +84,7 @@ $ pm2 start pm2.config.js
 ## Deploy By now
 
 <a target='__blank' href='https://zeit.co/now'><img src='https://avatars3.githubusercontent.com/in/8329?s=60&u=35934eb25f938206da3c68530ac900e2717abbc3&v=4' /></a>
+
+## More Questions
+
+Please check the [Faq documentation]('./docs/FAQ.md')
