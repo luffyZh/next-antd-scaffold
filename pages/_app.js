@@ -10,7 +10,7 @@ import { RouterTitle } from '../constants/ConstTypes';
 import '../assets/self-styles.less';
 
 
-class InTerViewSystem extends App {
+class NextApp extends App {
   
   static async getInitialProps ({ Component, ctx }) {
     let pageProps = {};
@@ -54,4 +54,4 @@ class InTerViewSystem extends App {
   }
 }
 
-export default withRedux(createStore)(withReduxSaga({ async: true })(InTerViewSystem));
+export default withRedux(createStore)(withReduxSaga({ async: true })(NextApp));
