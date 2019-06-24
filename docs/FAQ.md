@@ -51,7 +51,7 @@ Router.events.on('routeChangeStart', (path) => {
 
 ```
 
-## The solution of warning in the console
+## The solution of `min-css-extract-plugin` warning in the console
 
 ```
 chunk commons [mini-css-extract-plugin]

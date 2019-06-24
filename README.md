@@ -91,7 +91,7 @@ $ pm2 start pm2.config.js
 
 - How to listen for routing changes?
 
-- The solution of warning in the console!
+- The solution of `min-css-extract-plugin` warning in the console!
 
   ```
   chunk commons [mini-css-extract-plugin]
