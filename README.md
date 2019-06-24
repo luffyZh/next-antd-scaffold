@@ -91,4 +91,12 @@ $ pm2 start pm2.config.js
 
 - How to listen for routing changes?
 
+- The solution of warning in the console!
+
+  ```
+  chunk commons [mini-css-extract-plugin]
+  Conflicting order between:
+  ...
+  ```
+
 Please check the [Faq documentation](./docs/FAQ.md)

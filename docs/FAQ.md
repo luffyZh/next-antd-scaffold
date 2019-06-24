@@ -50,3 +50,45 @@ Router.events.on('routeChangeStart', (path) => {
 });
 
 ```
+
+## The solution of warning in the console
+
+```
+chunk commons [mini-css-extract-plugin]
+Conflicting order between:
+...
+```
+
+// next.config.js
+
+```
+// define the webpack plugn
+class FilterPlugin {
+  constructor(options) {
+    this.options = options;
+  }
+
+  apply(compiler) {
+    compiler.hooks.afterEmit.tap(
+      'FilterPlugin',
+      (compilation) => {
+        compilation.warnings = (compilation.warnings).filter(
+          warning => !this.options.filter.test(warning.message)
+        );
+      }
+    );
+  }
+}
+
+webpack: (config, {...args}) => {
+  config.plugins.push(
+    ...[
+      // Instantiate the plugin and add it as a Webpack plugin
+      new FilterPlugin(
+        { filter: /chunk styles \[mini-css-extract-plugin]\nConflicting order between:/ }
+      )
+    ]
+  );
+}
+
+```
