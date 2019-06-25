@@ -92,3 +92,51 @@ webpack: (config, {...args}) => {
 }
 
 ```
+
+## How to polyfill IE10/IE9 in this scaffold?
+
+#### Add polyfills.js in your project.
+
+```
+// /core/polyfills.js
+/* eslint no-extend-native: 0 */
+// core-js comes with Next.js. So, you can import it like below
+import includes from 'core-js/library/fn/string/virtual/includes';
+import repeat from 'core-js/library/fn/string/virtual/repeat';
+import assign from 'core-js/library/fn/object/assign';
+import 'core-js/es6/map';
+import 'core-js/es6/set';
+
+// Add your polyfills
+// This files runs at the very beginning (even before React and Next.js core)
+console.log('Load your polyfills');
+
+String.prototype.includes = includes;
+String.prototype.repeat = repeat;
+Object.assign = assign;
+```
+#### Config the next.config.js
+
+```
+// next.config.js
+...
+webpack: function (cfg) {
+    const originalEntry = cfg.entry
+    cfg.entry = async () => {
+      const entries = await originalEntry()
+
+      if (
+        entries['main.js'] &&
+        !entries['main.js'].includes('./core/polyfills.js')
+      ) {
+        entries['main.js'].unshift('./core/polyfills.js')
+      }
+
+      return entries
+    }
+
+    return cfg
+  }
+...
+```
+
