@@ -99,4 +99,6 @@ $ pm2 start pm2.config.js
   ...
   ```
 
+- How to polyfill IE10/IE9 in this scaffold?
+
 Please check the [Faq documentation](./docs/FAQ.md)

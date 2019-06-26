@@ -115,6 +115,7 @@ String.prototype.includes = includes;
 String.prototype.repeat = repeat;
 Object.assign = assign;
 ```
+
 #### Config the next.config.js
 
 ```
@@ -140,3 +141,4 @@ webpack: function (cfg) {
 ...
 ```
 
+#### Downgrade your Next version to '7.0.2'
