@@ -1,14 +1,20 @@
 ![](https://user-gold-cdn.xitu.io/2019/1/26/16889da2c2c4c0ac?imageView2/1/w/1304/h/734/q/85/interlace/1)
 A simple scaffold based on Next.js for quick use with ant-design, redux, redux-saga, fetch and pm2.
 
+English | [简体中文](./README_zh_CN.md)
+
 [![Deploy Status](https://circleci.com/gh/zeit/now-desktop.svg?style=shield)](https://next-antd-scaffold.luffyzh.now.sh/)
 [![Join the community on Spectrum](https://withspectrum.github.io/badge/badge.svg)](https://spectrum.chat/zeit)
 
-## Directory
+## 🏠 HomePage
+
+[Next-Antd-Scaffold-Demo](https://next-antd-scaffold.luffyzh.now.sh/)
+
+## 📁 Directory
 
 ```
 ——————
-  | -- assets               // ant-design global less var
+  | -- assets                // ant-design global less var
   | -- components            // React UI component
   | -- constants             // constant directory
       | -- ActionsTypes.js   // save all action type
@@ -22,14 +28,14 @@ A simple scaffold based on Next.js for quick use with ant-design, redux, redux-s
       | -- client            // client middlewares, deal redux action
       | -- server            // server middlewares, deal node event
   | -- pages                 // Next.js routes
-  | -- redux
+  | -- redux                 // redux directory
       | -- actions           // deal all projectaction
       | -- reducers          // deal all project reducer
       | -- sagas             // sace all project saga
-      | -- store.js
+      | -- store.js          // the store of project
   | -- static                // save static source directory
-  | -- .babelrc
-  | -- .eslintrc
+  | -- .babelrc              // babel config file
+  | -- .eslintrc             // eslint config file
   | -- .gitignore
   | -- next.config.js        // Next.js config file
   | -- package.json
@@ -38,7 +44,7 @@ A simple scaffold based on Next.js for quick use with ant-design, redux, redux-s
   | ...                      // other files
 ```
 
-## Usage
+## 🔨 Usage
 
 #### development
 
@@ -59,7 +65,7 @@ A simple scaffold based on Next.js for quick use with ant-design, redux, redux-s
 
 > The application is ready on http://localhost:5999
 
-## Features
+## ✨ Features
 
 - React
 - Next.js
@@ -68,7 +74,7 @@ A simple scaffold based on Next.js for quick use with ant-design, redux, redux-s
 - Ant-Design
 - Fetch
 
-## How to depoly application by pm2
+## 🙊 How to depoly application by pm2
 
 ```bash
 # 1. install pm2
@@ -85,7 +91,7 @@ $ pm2 start pm2.config.js
 
 <a target='__blank' href='https://zeit.co/now'><img src='https://avatars3.githubusercontent.com/in/8329?s=60&u=35934eb25f938206da3c68530ac900e2717abbc3&v=4' /></a>
 
-## More Questions
+## 🤔️ More Questions
 
 - How to use cssModules in this scaffold?
 
