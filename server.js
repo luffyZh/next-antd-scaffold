@@ -1,5 +1,6 @@
 const express = require('express');
 const cp = require('child_process');
+const path = require('path');
 const next = require('next');
 const { publicRuntimeConfig, serverRuntimeConfig } = require('./next.config');
 
@@ -15,6 +16,10 @@ const handle = app.getRequestHandler();
 app.prepare()
   .then(() => {
     const server = express();
+    // deal /favicon.ico
+    server.get('/favicon.ico', (req, res) =>
+      res.sendFile(path.join(__dirname, 'static', 'favicon.ico'))
+    );
 
     server.get('/user/userDetail/:username', (req, res) => {
       const { username } = req.params;
