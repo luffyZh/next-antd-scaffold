@@ -22,7 +22,7 @@ class UserList extends Component {
       dataIndex: 'username',
       key: 'username',
       render: (text) => (
-        <Link href={`/user/userDetail?username=${text}`} as={`/user/userDetail/${text}`}>
+        <Link href={`/user/detail?username=${text}`} as={`/user/detail/${text}`}>
           <a>{text}</a>
         </Link>
       )

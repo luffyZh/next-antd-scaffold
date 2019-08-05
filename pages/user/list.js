@@ -1,4 +1,4 @@
-import UserList from '../../containers/user/UserList';
+import UserList from '../../containers/user/list';
 import { fetchUserListData } from '../../redux/actions/user';
 
 UserList.getInitialProps = async (props) => {

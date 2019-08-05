@@ -21,9 +21,9 @@ app.prepare()
       res.sendFile(path.join(__dirname, 'static', 'favicon.ico'))
     );
 
-    server.get('/user/userDetail/:username', (req, res) => {
+    server.get('/user/detail/:username', (req, res) => {
       const { username } = req.params;
-      return app.render(req, res, '/user/userDetail', { username });
+      return app.render(req, res, '/user/detail', { username });
     });
 
     server.get('*', (req, res) => {

@@ -7,6 +7,6 @@ export const RoleType = {
 // 路由对应页面标题
 export const RouterTitle = {
   '/': 'Home',
-  '/user/userList': 'UserList',
-  '/user/userDetail': 'UserDetail'
+  '/user/list': 'UserList',
+  '/user/detail': 'UserDetail'
 };

@@ -1,8 +1,8 @@
 
-import userList from './userList';
+import list from './list';
 
 const userSagas = [
-  ...userList,
+  ...list,
 ];
 
 export default userSagas;
