@@ -16,9 +16,27 @@ const handle = app.getRequestHandler();
 app.prepare()
   .then(() => {
     const server = express();
+    // deal seo
+    server.get('/robots.txt', (req, res) => (
+      res.status(200).sendFile('robots.txt', {
+        root: __dirname + '/static/',
+        headers: {
+          'Content-Type': 'text/plain;charset=UTF-8',
+        }
+      })
+    ));
+    
+    server.get('/sitemap.xml', (req, res) => (
+      res.status(200).sendFile('sitemap.xml', {
+        root: __dirname + '/static/',
+        headers: {
+          'Content-Type': 'text/xml;charset=UTF-8',
+        }
+      })
+    ));
     // deal /favicon.ico
     server.get('/favicon.ico', (req, res) =>
-      res.sendFile(path.join(__dirname, 'static', 'favicon.ico'))
+      res.status(200).sendFile(path.join(__dirname, 'static', 'favicon.ico'))
     );
 
     server.get('/user/detail/:username', (req, res) => {
