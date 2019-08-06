@@ -32,9 +32,9 @@ class Header extends Component {
   render() {
     const { title } = this.state;
     return (
-      <div className='header-container'>
+      <div id='header_bar' className='container'>
         <style jsx>{`
-          .header-container {
+          .container {
             position: fixed;
             top: 0;
             width: 100%;

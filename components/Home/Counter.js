@@ -34,7 +34,7 @@ class Counter extends Component {
         </h1>
         <Button onClick={this.increment}>+1</Button>
         <Button onClick={this.decrement}>-1</Button>
-        <Button onClick={this.reset}>Reset</Button>
+        <Button type='primary' onClick={this.reset}>Reset</Button>
       </div>
     );
   }

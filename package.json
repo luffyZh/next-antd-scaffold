@@ -37,6 +37,7 @@
     "@zeit/next-less": "^1.0.1",
     "antd": "^3.8.4",
     "babel-plugin-import": "^1.9.0",
+    "dynamic-antd-theme": "^0.3.1",
     "es6-promise": "^4.2.5",
     "express": "^4.16.3",
     "if-comp": "^0.0.8",

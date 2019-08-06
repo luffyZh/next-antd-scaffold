@@ -1,5 +1,6 @@
 import { Fragment } from 'react';
 import PropTypes from 'prop-types';
+import DynamicAntdTheme from 'dynamic-antd-theme';
 import Header from './Header';
 
 const Layout = ({ title, children }) => (
@@ -18,6 +19,16 @@ const Layout = ({ title, children }) => (
     <Header title={title} />
     <div className='content-container'>
       {children}
+    </div>
+    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+      Change Theme:
+      <DynamicAntdTheme
+        style={{ display: 'flex', marginLeft: '10px' }}
+        primaryColor='#52c41a'
+        themeChangeCallback={
+          color => document.getElementById('header_bar').style.backgroundColor = color
+        }
+      />
     </div>
   </Fragment>
 );
