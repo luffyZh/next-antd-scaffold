@@ -42,7 +42,7 @@ class Header extends Component {
             background-color: ${color_primary};
             z-index: 999;
           }
-          h2 {
+          h1 {
             text-align: center;
             line-height: 60px;
             font-size: 1.6rem;
@@ -73,10 +73,10 @@ class Header extends Component {
         <Link href='/'>
           <div className='logo-container'>
             <img className='logo' alt='logo' src={`${staticFolder}/logo.png`} />
-            <span className='sys-name'>Next-Antd-Scafflod</span>
+            <span className='sys-name'>Next-Antd-Scaffold</span>
           </div>
         </Link>
-        <h2>{title}</h2>
+        <h1>{title}</h1>
       </div>
     );
   }
