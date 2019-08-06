@@ -29,7 +29,9 @@ class NextApp extends App {
         <Head>
           <meta name='viewport' content='width=device-width, initial-scale=1' />
           <meta charSet='utf-8' />
-          <title>Next-Antd-Scafflod</title>
+          <title>Next-Antd-Scaffold - A better scaffold of Next.js</title>
+          <meta name='keywords' content='next.js,antd,scaffold' />
+          <meta name='description' content='🏠 A simple scaffold based on Next.js for quick use with ant-design, redux, redux-saga, fetch and pm2.' />
           <link rel='shortcut icon' href='/static/favicon.ico' type='image/ico'/>
           <style jsx global>{`
             * {

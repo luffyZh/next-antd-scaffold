@@ -1,11 +1,7 @@
 import { Component } from 'react';
 import PropTypes from 'prop-types';
 import Link from 'next/link';
-import getConfig from 'next/config';
 import { color_primary } from '../constants/CustomTheme';
-
-// Only holds serverRuntimeConfig and publicRuntimeConfig from next.config.js nothing else.
-const { publicRuntimeConfig: { staticFolder } } = getConfig();
 
 class Header extends Component {
   static propTypes = {
@@ -42,7 +38,7 @@ class Header extends Component {
             background-color: ${color_primary};
             z-index: 999;
           }
-          h2 {
+          h1 {
             text-align: center;
             line-height: 60px;
             font-size: 1.6rem;
@@ -72,11 +68,11 @@ class Header extends Component {
         `}</style>
         <Link href='/'>
           <div className='logo-container'>
-            <img className='logo' alt='logo' src={`${staticFolder}/logo.png`} />
-            <span className='sys-name'>Next-Antd-Scafflod</span>
+            <img className='logo' alt='logo' src={'/static/logo.png'} />
+            <span className='sys-name'>Next-Antd-Scaffold</span>
           </div>
         </Link>
-        <h2>{title}</h2>
+        <h1>{title}</h1>
       </div>
     );
   }

@@ -2,7 +2,6 @@
 const withLess = require('@zeit/next-less');
 const lessToJS = require('less-vars-to-js');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
-const TerserPlugin = require('terser-webpack-plugin');
 const fs = require('fs');
 const path = require('path');
 
@@ -34,6 +33,7 @@ if (typeof require !== 'undefined') {
 }
 
 module.exports = withLess({
+  target: 'serverless',
   lessLoaderOptions: {
     javascriptEnabled: true,
     modifyVars: themeVariables,
@@ -49,18 +49,6 @@ module.exports = withLess({
             generateStatsFile: true,
             // Will be available at `.next/stats.json`
             statsFilename: 'stats.json'
-          }),
-          // 代替uglyJsPlugin
-          new TerserPlugin({
-            terserOptions: {
-              ecma: 6,
-              warnings: false,
-              extractComments: false, // remove comment
-              compress: {
-                drop_console: true // remove console
-              },
-              ie8: false
-            }
           }),
       ]);
       config.devtool = 'source-map';
@@ -93,14 +81,6 @@ module.exports = withLess({
     // console.log(config, '@@')
     // Important: return the modified config
     return config;
-  },
-  serverRuntimeConfig: { // Will only be available on the server side
-    rootDir: path.join(__dirname, './'),
-    PORT: isDev ? 3006 : (process.env.PORT || 5999)
-  },
-  publicRuntimeConfig: { // Will be available on both server and client
-    staticFolder: '/static',
-    isDev, // Pass through env variables
   },
   env: {
     SERVER_HOST: 'http://www.luffyzhou.cn'

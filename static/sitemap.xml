@@ -1,3 +1,13 @@
-/**
- * 存放你的sitemap文件
- */
+<!-- This file content should be replaced with the sitemap file content of your own site -->
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
+<url>
+  <loc>https://next-antd-scaffold.luffyzh.now.sh/</loc>
+  <lastmod>2019-08-05T11:04:12+00:00</lastmod>
+</url>
+</urlset>

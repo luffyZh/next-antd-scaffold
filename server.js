@@ -2,13 +2,9 @@ const express = require('express');
 const cp = require('child_process');
 const path = require('path');
 const next = require('next');
-const { publicRuntimeConfig, serverRuntimeConfig } = require('./next.config');
-
-const { isDev } = publicRuntimeConfig;
-const { PORT } = serverRuntimeConfig;
 
 // 判断开发环境和生产环境
-const dev = isDev;
+const dev = process.env.NODE_ENV !== 'production';
 
 const app = next({ dev });
 const handle = app.getRequestHandler();
@@ -48,9 +44,9 @@ app.prepare()
       return handle(req, res);
     });
 
-    server.listen(PORT, err => {
+    server.listen(3006, err => {
       if (err) throw err;
-      const serverUrl = `http://localhost:${PORT}`;
+      const serverUrl = `http://localhost:${3006}`;
       console.log(`> Ready on ${serverUrl}`);
       // 开发环境自动启动
       if (dev) {
