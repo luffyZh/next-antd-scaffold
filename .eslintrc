@@ -43,6 +43,7 @@
     "keyword-spacing": [2, { "before": true }],
     "eqeqeq": [2, "always"],
     "space-infix-ops": [2, {"int32Hint": false}],
+    "spaced-comment": 2,
     "comma-spacing": [2, { "before": false, "after": true }],
     "block-spacing": [2, "always"],
     "no-else-return": 2
