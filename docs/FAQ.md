@@ -142,3 +142,58 @@ webpack: function (cfg) {
 ```
 
 #### Downgrade your Next version to '7.0.2'
+
+## The ant-design style flash when page refresh!
+
+```
+// _app.js -> getInitialProps
+  /* 刷新页面 antd闪动 */
+  if (typeof window !== "undefined") {
+    window.onload = () => {
+      document.getElementById("flashStyle").remove();
+    };
+  }
+
+// _app.js -> <Head></Head>
+<style
+  id='flashStyle'
+  dangerouslySetInnerHTML={{
+    __html: `
+      *, *::before, *::after {
+        transition: none!important;
+      }
+    `
+  }}
+/>
+```
+
+## How to speed up packing in production?
+
+#### 1. tenser-webpack-plugin -> cache
+
+```
+new TerserPlugin({
+  cache: true, // add this line
+  terserOptions: {
+    ...
+  }
+}),
+```
+
+#### 2. Add thread-loader
+
+```
+config.module.rules.push({
+  test: /\.js$/,
+  include: [
+    path.resolve('src')
+    ...
+  ],
+  options: {
+    workerParallelJobs: 50,
+    // additional node.js arguments
+    workerNodeArgs: ['--max-old-space-size=1024'],
+  },
+  loader: 'thread-loader'
+});
+```
