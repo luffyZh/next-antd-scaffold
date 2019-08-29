@@ -33,6 +33,16 @@ if (typeof require !== 'undefined') {
   require.extensions['.less'] = (file) => {}
 }
 
+const srcFolder = [
+  path.resolve('components'),
+  path.resolve('constants'),
+  path.resolve('containers'),
+  path.resolve('core'),
+  path.resolve('middlewares'),
+  path.resolve('pages'),
+  path.resolve('redux')
+]
+
 module.exports = withLess({
   lessLoaderOptions: {
     javascriptEnabled: true,
@@ -52,6 +62,7 @@ module.exports = withLess({
           }),
           // 代替uglyJsPlugin
           new TerserPlugin({
+            cache: true,
             terserOptions: {
               ecma: 6,
               warnings: false,
@@ -63,19 +74,22 @@ module.exports = withLess({
             }
           }),
       ]);
+      config.module.rules.push({
+        test: /\.js$/,
+        include: srcFolder,
+        options: {
+          workerParallelJobs: 50,
+          // additional node.js arguments
+          workerNodeArgs: ['--max-old-space-size=1024'],
+        },
+        loader: 'thread-loader'
+      });
       config.devtool = 'source-map';
     } else {
       config.module.rules.push({
         test: /\.js$/,
         enforce: 'pre',
-        include: [
-          path.resolve('components'),
-          path.resolve('pages'),
-          path.resolve('utils'),
-          path.resolve('constants'),
-          path.resolve('redux'),
-          path.resolve('containers')
-        ],
+        include: srcFolder,
         options: {
           configFile: path.resolve('.eslintrc'),
           eslint: {
