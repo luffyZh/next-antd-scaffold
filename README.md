@@ -99,12 +99,10 @@ $ pm2 start pm2.config.js
 
 - The solution of `min-css-extract-plugin` warning in the console!
 
-  ```
-  chunk commons [mini-css-extract-plugin]
-  Conflicting order between:
-  ...
-  ```
-
 - How to polyfill IE10/IE9 in this scaffold?
+
+- The ant-design style flash when page refresh!
+
+...
 
 Please check the [Faq documentation](./docs/FAQ.md)

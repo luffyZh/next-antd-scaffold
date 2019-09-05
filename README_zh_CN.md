@@ -97,12 +97,10 @@ $ pm2 start pm2.config.js
 
 - 关于 `min-css-extract-plugin` 警告的解决办法!
 
-  ```
-  chunk commons [mini-css-extract-plugin]
-  Conflicting order between:
-  ...
-  ```
-
 - 这个脚手架怎么兼容 IE9/10?
+
+- Ant-Design 刷新页面时样式闪动
+
+...
 
 更多问题请查看 [Faq 文档](./docs/FAQ.md)
