@@ -8,21 +8,22 @@ import api from '../../../constants/ApiUrlForBE';
 /**
  * userList saga
  */
-export function* userList() {
+export function* fetchUserList() {
   while (true) {
     yield take(FETCH_USER_LIST);
     try {
       const res = yield fetch(api.getUserList);
       const data = yield res.json();
       yield put(fetchUserListDataSuccess(data));
-    } catch (error) {
-      yield put(fetchUserListDataFail(error));
+    } catch (e) {
+      console.log(e);
+      yield put(fetchUserListDataFail());
     }
   }
 }
 
 export default [
-  fork(userList)
+  fork(fetchUserList)
 ];
 
 
