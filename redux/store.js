@@ -3,12 +3,14 @@ import createSagaMiddleware from 'redux-saga';
 import rootReducer from './reducers/index';
 import rootSaga from './sagas/index';
 import userMiddleware from '../middlewares/client/user';
+import serverErrorMiddleware from '../middlewares/client/serverError';
 
 const sagaMiddleware = createSagaMiddleware();
 
 const bindMiddleware = (middleware) => {
   // add route middleware
-  middleware.push(userMiddleware);
+  const middlewareArr = [serverErrorMiddleware, userMiddleware];
+  middleware.push(...middlewareArr);
   if (process.env.NODE_ENV !== 'production') {
     const { composeWithDevTools } = require('redux-devtools-extension');
     // development use logger
