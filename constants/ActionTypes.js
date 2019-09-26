@@ -1,3 +1,7 @@
+// ================= Server Error ================= //
+export const SERVER_ERROR = 'SERVER_ERROR';
+export const CLEAR_SERVER_ERROR = 'CLEAR_SERVER_ERROR';
+
 // ================= Home Part ==================== //
 export const INCREMENT = 'INCREMENT';
 export const DECREMENT = 'DECREMENT';

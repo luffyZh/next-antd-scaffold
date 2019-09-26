@@ -30,7 +30,7 @@ fs.writeFileSync(
 
 // fix: prevents error when .css files are required by node
 if (typeof require !== 'undefined') {
-  require.extensions['.less'] = (file) => {}
+  require.extensions['.less'] = () => {}
 }
 
 const srcFolder = [

@@ -12,11 +12,6 @@ class UserList extends Component {
   }
   constructor(props) {
     super(props);
-    const { list } = props;
-    this.state = {
-      dataSource: list
-    };
-
     this.columns = [{
       title: 'Username',
       dataIndex: 'username',
@@ -38,25 +33,13 @@ class UserList extends Component {
     }];
   }
 
-  static getDerivedStateFromProps(nextProps, prevState) {
-    if (nextProps.list && nextProps.list !== prevState.dataSource) {
-      return {
-        dataSource: nextProps.list
-      };
-    }
-    return null; 
-  }
-
   render() {
-    const { dataSource } = this.state;
-    dataSource.map(item => {
-      item.key = item.id;
-      item.role = 10;
-    });
+    const { list } = this.props;
     return (
       <Table
         style={{ minWidth: '600px' }}
-        dataSource={dataSource}
+        rowKey={record => record.id}
+        dataSource={list}
         columns={this.columns}
         bordered
       />

@@ -4,9 +4,11 @@ import Head from 'next/head';
 import { Provider } from 'react-redux';
 import withRedux from 'next-redux-wrapper';
 import withReduxSaga from 'next-redux-saga';
+import { message } from 'antd';
 import createStore from '../redux/store';
 import Layout from '../components/Layout';
 import { RouterTitle } from '../constants/ConstTypes';
+import { clearServerError } from '../redux/actions/common';
 import '../assets/self-styles.less';
 
 
@@ -20,6 +22,18 @@ class NextApp extends App {
     }
 
     return { pageProps };
+  }
+
+  componentDidMount() {
+    const { store: { getState, dispatch } } = this.props;
+    // 处理服务器端的错误提示
+    const { errorType } = getState().serverError;
+    if (errorType.length > 0) {
+      Promise.all(
+        errorType.map(type => message.error(`服务器错误, 代码：${type}`))
+      );
+      dispatch(clearServerError());
+    }
   }
 
   render () {

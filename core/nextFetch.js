@@ -2,6 +2,18 @@ import fetch from 'isomorphic-unfetch';
 import qs from 'query-string';
 import { filterObject } from './util';
 
+function dealStatus(res) {
+  console.log(res.status, 111111);
+  if (res.status !== 200) {
+    // 处理错误
+    const err = new Error(res.statusText);
+    err.message = res.statusText;
+    err.code = res.status;
+    throw err;
+  }
+  return res;
+}
+
 // initial fetch
 const nextFetch = Object.create(null);
 // browser support methods
@@ -40,17 +52,8 @@ HTTP_METHOD.forEach(method => {
     console.info('Request Url:', url);
 
     return fetch(url, opts)
-      .then(res => res.json())
-      .then(({ errcode = 0, errmsg, data }) => {
-        if (errcode !== 0) {
-          const err = new Error(errmsg);
-          err.message = errmsg;
-          err.code = errcode;
-          err.data = data;
-          throw err;
-        }
-        return data;
-      });
+      .then(dealStatus)
+      .then(res => res.json());
   };
 });
 

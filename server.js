@@ -7,7 +7,7 @@ const { publicRuntimeConfig, serverRuntimeConfig } = require('./next.config');
 const { isDev } = publicRuntimeConfig;
 const { PORT } = serverRuntimeConfig;
 
-const app = next({ isDev });
+const app = next({ dev: isDev });
 const handle = app.getRequestHandler();
 
 app.prepare()
