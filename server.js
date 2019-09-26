@@ -7,10 +7,7 @@ const { publicRuntimeConfig, serverRuntimeConfig } = require('./next.config');
 const { isDev } = publicRuntimeConfig;
 const { PORT } = serverRuntimeConfig;
 
-// 判断开发环境和生产环境
-const dev = isDev;
-
-const app = next({ dev });
+const app = next({ isDev });
 const handle = app.getRequestHandler();
 
 app.prepare()
@@ -34,18 +31,17 @@ app.prepare()
       if (err) throw err;
       const serverUrl = `http://localhost:${PORT}`;
       console.log(`> Ready on ${serverUrl}`);
-      // 开发环境自动启动
-      if (dev) {
+      // development auto open browser
+      if (isDev) {
         switch (process.platform) {
-          // mac系统使用 一下命令打开url在浏览器
+          // macos
           case 'darwin':
             cp.exec(`open ${serverUrl}`);
             break;
-          // win系统使用 一下命令打开url在浏览器
+          // windows
           case 'win32':
             cp.exec(`start ${serverUrl}`);
             break;
-          // 默认mac系统
           default:
             cp.exec(`open ${serverUrl}`);
         }
