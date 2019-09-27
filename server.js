@@ -3,6 +3,7 @@ const cp = require('child_process');
 const path = require('path');
 const next = require('next');
 const { publicRuntimeConfig, serverRuntimeConfig } = require('./next.config');
+const routes = require('./backend/routes');
 
 const { isDev } = publicRuntimeConfig;
 const { PORT } = serverRuntimeConfig;
@@ -22,6 +23,8 @@ app.prepare()
       const { username } = req.params;
       return app.render(req, res, '/user/detail', { username });
     });
+
+    server.use('/api', routes);
 
     server.get('*', (req, res) => {
       return handle(req, res);

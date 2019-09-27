@@ -70,7 +70,7 @@ class Header extends Component {
             height: 30px;
           }
         `}</style>
-        <Link href='/'>
+        <Link href='/home'>
           <div className='logo-container'>
             <img className='logo' alt='logo' src={`${staticFolder}/logo.png`} />
             <span className='sys-name'>Next-Antd-Scaffold</span>

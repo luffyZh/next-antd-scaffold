@@ -1,25 +1,35 @@
 import { Fragment } from 'react';
 import App, { Container } from 'next/app';
 import Head from 'next/head';
+import Router from 'next/router';
 import { Provider } from 'react-redux';
 import withRedux from 'next-redux-wrapper';
 import withReduxSaga from 'next-redux-saga';
 import createStore from '../redux/store';
 import Layout from '../components/Layout';
-import { RouterTitle } from '../constants/ConstTypes';
+import initialize from '../core/initialize';
 import '../assets/self-styles.less';
-
 
 class NextApp extends App {
   
   static async getInitialProps ({ Component, ctx }) {
     let pageProps = {};
 
+    initialize(ctx);
+
     if (Component.getInitialProps) {
       pageProps = await Component.getInitialProps({ ctx });
     }
 
     return { pageProps };
+  }
+
+  componentDidMount() {
+    const { store: { getState } } = this.props;
+    // 如果未登录状态，那么跳转到首页登录
+    if (!getState().user.login) {
+      Router.push('/');
+    }
   }
 
   render () {
@@ -44,7 +54,7 @@ class NextApp extends App {
         </Head>
         <Container>
           <Provider store={store}>
-            <Layout title={RouterTitle[router.pathname]}>
+            <Layout router={router}>
               <Component {...pageProps} router={router} />
             </Layout>
           </Provider>

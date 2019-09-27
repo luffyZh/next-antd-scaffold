@@ -1,3 +1,3 @@
-import Home from '../components/Home';
+import Index from '../containers/login';
 
-export default Home;
+export default Index;

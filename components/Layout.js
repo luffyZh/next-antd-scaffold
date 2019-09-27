@@ -1,10 +1,11 @@
-import { Fragment } from 'react';
 import PropTypes from 'prop-types';
+import IfComp from 'if-comp';
 import DynamicAntdTheme from 'dynamic-antd-theme';
 import Header from './Header';
+import { RouterTitle } from '../constants/ConstTypes';
 
-const Layout = ({ title, children }) => (
-  <Fragment>
+const Layout = ({ router, children }) => (
+  <>
     <style jsx>{`
       .content-container {
         position: relative;
@@ -16,30 +17,37 @@ const Layout = ({ title, children }) => (
         background-color: #fff;
       }
     `}</style>
-    <Header title={title} />
-    <div className='content-container'>
-      {children}
-    </div>
-    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-      Change Theme:
-      <DynamicAntdTheme
-        style={{ display: 'flex', marginLeft: '10px' }}
-        primaryColor='#52c41a'
-        themeChangeCallback={
-          color => document.getElementById('header_bar').style.backgroundColor = color
-        }
-      />
-    </div>
-  </Fragment>
+    <IfComp 
+      expression={router.pathname === '/'}
+      trueComp={children}
+      falseComp={
+        <>
+          <Header title={RouterTitle[router.pathname]} />
+          <div className='content-container'>
+            {children}
+          </div>
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+            Change Theme:
+            <DynamicAntdTheme
+              style={{ display: 'flex', marginLeft: '10px' }}
+              primaryColor='#52c41a'
+              themeChangeCallback={
+                color => document.getElementById('header_bar').style.backgroundColor = color
+              }
+            />
+          </div>
+        </>
+      }
+    />
+  </>
 );
 export default Layout;
 
 Layout.propTypes = {
-  title: PropTypes.string,
+  router: PropTypes.object.isRequired,
   children: PropTypes.any
 };
 
 Layout.defaultProps = {
-  title: '',
   children: null
 };
