@@ -7,7 +7,7 @@ const columns = [{
   dataIndex: 'username',
   key: 'username',
   render: (text) => (
-    <Link href={`/user/detail?username=${text}`} as={`/user/detail/${text}`}>
+    <Link href={`/user?username=${text}`} as={`/user/${text}`}>
       <a>{text}</a>
     </Link>
   )

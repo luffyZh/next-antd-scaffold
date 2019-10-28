@@ -1,5 +1,6 @@
 /* eslint-disable */
 const withLess = require('@zeit/next-less');
+const withSize = require('next-size');
 const lessToJS = require('less-vars-to-js');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 const TerserPlugin = require('terser-webpack-plugin');
@@ -34,89 +35,111 @@ if (typeof require !== 'undefined') {
 }
 
 const srcFolder = [
-  path.resolve('components'),
-  path.resolve('constants'),
-  path.resolve('containers'),
-  path.resolve('core'),
-  path.resolve('middlewares'),
-  path.resolve('pages'),
-  path.resolve('redux')
+  path.resolve('/src/components'),
+  path.resolve('/src/constants'),
+  path.resolve('/src/containers'),
+  path.resolve('/src/core'),
+  path.resolve('/src/middlewares'),
+  path.resolve('/src/pages'),
+  path.resolve('/src/redux')
 ]
 
-module.exports = withLess({
-  lessLoaderOptions: {
-    javascriptEnabled: true,
-    modifyVars: themeVariables,
-    localIdentName: '[local]___[hash:base64:5]',
-  },
-  webpack: (config, { buildId, dev, isServer, defaultLoaders }) => {
-    if (!dev) {
-      config.plugins.push(
-        ...[
-          new BundleAnalyzerPlugin({
-            analyzerMode: 'disabled',
-            // For all options see https://github.com/th0r/webpack-bundle-analyzer#as-plugin
-            generateStatsFile: true,
-            // Will be available at `.next/stats.json`
-            statsFilename: 'stats.json'
-          }),
-          // 代替uglyJsPlugin
-          new TerserPlugin({
-            cache: true,
-            terserOptions: {
-              ecma: 6,
-              warnings: false,
-              extractComments: false, // remove comment
-              compress: {
-                drop_console: true // remove console
-              },
-              ie8: false
+module.exports = withSize(
+  withLess({
+    lessLoaderOptions: {
+      javascriptEnabled: true,
+      modifyVars: themeVariables,
+      localIdentName: '[local]___[hash:base64:5]',
+    },
+    webpack: (config, { buildId, dev, isServer, defaultLoaders }) => {
+      if (isServer) {
+        // deal antd style
+        const antStyles = /antd\/.*?\/style.*?/
+        const origExternals = [...config.externals]
+        config.externals = [
+          (context, request, callback) => {
+            if (request.match(antStyles)) return callback()
+            if (typeof origExternals[0] === 'function') {
+              origExternals[0](context, request, callback)
+            } else {
+              callback()
             }
-          }),
-      ]);
-      config.module.rules.push({
-        test: /\.js$/,
-        include: srcFolder,
-        options: {
-          workerParallelJobs: 50,
-          // additional node.js arguments
-          workerNodeArgs: ['--max-old-space-size=1024'],
-        },
-        loader: 'thread-loader'
-      });
-      config.devtool = 'source-map';
-    } else {
-      config.module.rules.push({
-        test: /\.js$/,
-        enforce: 'pre',
-        include: srcFolder,
-        options: {
-          configFile: path.resolve('.eslintrc'),
-          eslint: {
-            configFile: path.resolve(__dirname, '.eslintrc')
-          }
-        },
-        loader: 'eslint-loader'
-      });
-      config.devtool = 'cheap-module-inline-source-map';
+          },
+          ...(typeof origExternals[0] === 'function' ? [] : origExternals),
+        ]
+        config.module.rules.unshift({
+          test: antStyles,
+          use: 'null-loader',
+        })
+      }
+      if (!dev) {
+        config.plugins.push(
+          ...[
+            new BundleAnalyzerPlugin({
+              analyzerMode: 'disabled',
+              // For all options see https://github.com/th0r/webpack-bundle-analyzer#as-plugin
+              generateStatsFile: true,
+              // Will be available at `.next/stats.json`
+              statsFilename: 'stats.json'
+            }),
+            // 代替uglyJsPlugin
+            new TerserPlugin({
+              cache: true,
+              terserOptions: {
+                ecma: 6,
+                warnings: false,
+                extractComments: false, // remove comment
+                compress: {
+                  drop_console: true // remove console
+                },
+                ie8: false
+              }
+            }),
+        ]);
+        config.module.rules.push({
+          test: /\.js$/,
+          include: srcFolder,
+          options: {
+            workerParallelJobs: 50,
+            // additional node.js arguments
+            workerNodeArgs: ['--max-old-space-size=1024'],
+          },
+          loader: 'thread-loader'
+        });
+        config.devtool = 'source-map';
+      } else {
+        config.module.rules.push({
+          test: /\.js$/,
+          enforce: 'pre',
+          include: srcFolder,
+          options: {
+            configFile: path.resolve('.eslintrc'),
+            eslint: {
+              configFile: path.resolve(__dirname, '.eslintrc')
+            }
+          },
+          loader: 'eslint-loader'
+        });
+        config.devtool = 'cheap-module-inline-source-map';
+      }
+      return config;
+    },
+    webpackDevMiddleware: config => {
+      // Perform customizations to webpack dev middleware config
+      // console.log(config, '@@')
+      // Important: return the modified config
+      return config;
+    },
+    serverRuntimeConfig: { // Will only be available on the server side
+      rootDir: path.join(__dirname, './'),
+      PORT: isDev ? 3006 : (process.env.PORT || 5999)
+    },
+    publicRuntimeConfig: { // Will be available on both server and client
+      staticFolder: '/static',
+      isDev, // Pass through env variables
+    },
+    env: {
+      SERVER_HOST: 'http://www.luffyzhou.cn'
     }
-    return config;
-  },
-  webpackDevMiddleware: config => {
-    // Perform customizations to webpack dev middleware config
-    // console.log(config, '@@')
-    // Important: return the modified config
-    return config;
-  },
-  serverRuntimeConfig: { // Will only be available on the server side
-    rootDir: path.join(__dirname, './'),
-    PORT: isDev ? 3006 : (process.env.PORT || 5999)
-  },
-  publicRuntimeConfig: { // Will be available on both server and client
-    staticFolder: '/static',
-    isDev, // Pass through env variables
-  },
-  env: {
-    SERVER_HOST: 'http://www.luffyzhou.cn'
-  }
-});
+  })
+);
