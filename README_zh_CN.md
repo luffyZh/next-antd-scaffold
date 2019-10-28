@@ -8,30 +8,37 @@
 
 [Next-Antd-Scaffold-Demo](https://next-antd-scaffold.luffyzh.now.sh/)
 
+> 如果你更喜欢使用 next-v8.1.0 的版本. 地址在这里 [next-antd-scaffold_version8](https://github.com/luffyZh/next-antd-scaffold/tree/v1.0).
+
 ## 📁 目录结构
 
 ```
 ——————
-  | -- assets                // 样式文件的设置，包括antd的主题覆盖
-  | -- components            // React UI 组件
-  | -- constants             // 系统常量文件夹
-      | -- ActionsTypes.js   // 存储redux所有的action常量
-      | -- ApiUrlForBE.js    // 存储所有的后端api常量
+  | -- assets                    // 样式文件的设置，包括antd的主题覆盖
+  | -- docs                      // 文档目录
+  | -- public                    // 静态资源目录
+      | -- static                // 兼容小于version9版本的静态资源目录
+      | -- favicon.ico           // 一些存放于根路径的资源文件，比如seo文件
       | -- ...
-  | -- containers            // React 状态组件
-  | -- core                  // 核心方法目录
-      | -- util.js           // 系统的一些公共方法
-      | -- nextFetch.js      // 为了方便使用封装了fetch
-  | -- middlewares           // 中间件目录
-      | -- client            // 客户端中间件，处理redux的action
-      | -- server            // 服务端中间件，处理node模块
-  | -- pages                 // Next.js 路由目录
-  | -- redux                 // redux目录
-      | -- actions           // 处理所有的action
-      | -- reducers          // 处理所有的state
-      | -- sagas             // 处理所有的saga
-      | -- store.js          // 整个系统的store
-  | -- static                // 存储所有的静态资源
+  | -- src                       // source目录，符合大众习惯
+      | -- components            // React UI 组件
+      | -- constants             // 系统常量文件夹
+          | -- ActionsTypes.js   // 存储redux所有的action常量
+          | -- ApiUrlForBE.js    // 存储所有的后端api常量
+          | -- ...
+      | -- containers            // React 状态组件
+      | -- core                  // 核心方法目录
+          | -- util.js           // 系统的一些公共方法
+          | -- nextFetch.js      // 为了方便使用封装了fetch
+      | -- middlewares           // 中间件目录
+          | -- client            // 客户端中间件，处理redux的action
+          | -- server            // 服务端中间件，处理node模块
+      | -- pages                 // Next.js 路由目录
+      | -- redux                 // redux目录
+          | -- actions           // 处理所有的action
+          | -- reducers          // 处理所有的state
+          | -- sagas             // 处理所有的saga
+          | -- store.js          // 整个系统的store
   | -- .babelrc              // babel配置文件
   | -- .eslintrc             // eslint配置文件
   | -- .gitignore

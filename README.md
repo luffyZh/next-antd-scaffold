@@ -10,30 +10,37 @@ English | [简体中文](./README_zh_CN.md)
 
 [Next-Antd-Scaffold-Demo](https://next-antd-scaffold.luffyzh.now.sh/)
 
+> If you like use the next version is 8.1.0. There is [next-antd-scaffold_version8](https://github.com/luffyZh/next-antd-scaffold/tree/v1.0).
+
 ## 📁 Directory
 
 ```
 ——————
-  | -- assets                // ant-design global less var
-  | -- components            // React UI component
-  | -- constants             // constant directory
-      | -- ActionsTypes.js   // save all action type
-      | -- ApiUrlForBE.js    // save all apiUrl
+  | -- assets                    // ant-design global less var
+  | -- docs                      // documents directory
+  | -- public                    // static files directory
+      | -- static                // compatible with < version 9.0
+      | -- favicon.ico           // some files examples like seo files
       | -- ...
-  | -- containers            // React container component
-  | -- core                  // mehtod dirctory
-      | -- util.js           // project method
-      | -- nextFetch.js      // packing unfetch for easy use
-  | -- middlewares           // middlewares
-      | -- client            // client middlewares, deal redux action
-      | -- server            // server middlewares, deal node event
-  | -- pages                 // Next.js routes
-  | -- redux                 // redux directory
-      | -- actions           // deal all projectaction
-      | -- reducers          // deal all project reducer
-      | -- sagas             // sace all project saga
-      | -- store.js          // the store of project
-  | -- static                // save static source directory
+  | -- src                       // source directory
+      | -- components            // React UI component
+      | -- constants             // constant directory
+          | -- ActionsTypes.js   // save all action type
+          | -- ApiUrlForBE.js    // save all apiUrl
+          | -- ...
+      | -- containers            // React container component
+      | -- core                  // mehtod dirctory
+          | -- util.js           // project method
+          | -- nextFetch.js      // packing unfetch for easy use
+      | -- middlewares           // middlewares
+          | -- client            // client middlewares, deal redux action
+          | -- server            // server middlewares, deal node event
+      | -- pages                 // Next.js routes
+      | -- redux                 // redux directory
+          | -- actions           // deal all projectaction
+          | -- reducers          // deal all project reducer
+          | -- sagas             // sace all project saga
+          | -- store.js          // the store of project
   | -- .babelrc              // babel config file
   | -- .eslintrc             // eslint config file
   | -- .gitignore
