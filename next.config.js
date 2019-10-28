@@ -35,13 +35,13 @@ if (typeof require !== 'undefined') {
 }
 
 const srcFolder = [
-  path.resolve('/src/components'),
-  path.resolve('/src/constants'),
-  path.resolve('/src/containers'),
-  path.resolve('/src/core'),
-  path.resolve('/src/middlewares'),
-  path.resolve('/src/pages'),
-  path.resolve('/src/redux')
+  path.resolve(__dirname, './src/components'),
+  path.resolve(__dirname, './src/constants'),
+  path.resolve(__dirname, './src/containers'),
+  path.resolve(__dirname, './src/core'),
+  path.resolve(__dirname, './src/middlewares'),
+  path.resolve(__dirname, './src/pages'),
+  path.resolve(__dirname, './src/redux')
 ]
 
 module.exports = withSize(

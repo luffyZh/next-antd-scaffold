@@ -51,6 +51,26 @@ Router.events.on('routeChangeStart', (path) => {
 
 ```
 
+## The solution of `ant-design` in the development environment style load is incomplete.
+
+```
+// next.config.js
+
+const isDev = process.env.NODE_ENV !== 'production';
+
+// fix antd bug in dev development
+const devAntd = '@import "~antd/dist/antd.less";\n';
+const stylesData = fs.readFileSync(
+  path.resolve(__dirname, './assets/_styles.less'),
+  'utf-8'
+);
+fs.writeFileSync(
+  path.resolve(__dirname, './assets/self-styles.less'),
+  isDev ? `${devAntd}${stylesData}` : stylesData,
+  'utf-8'
+);
+```
+
 ## The solution of `min-css-extract-plugin` warning in the console
 
 ```
