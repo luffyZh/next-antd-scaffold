@@ -13,11 +13,6 @@ app.prepare()
   .then(() => {
     const server = express();
 
-    server.get('/user/detail/:username', (req, res) => {
-      const { username } = req.params;
-      return app.render(req, res, '/user/detail', { username });
-    });
-
     server.get('*', (req, res) => {
       return handle(req, res);
     });

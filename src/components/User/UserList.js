@@ -7,7 +7,7 @@ const columns = [{
   dataIndex: 'username',
   key: 'username',
   render: (text) => (
-    <Link href={`/user?username=${text}`} as={`/user/${text}`}>
+    <Link href={`/user/[username]`} as={`/user/${text}`}>
       <a>{text}</a>
     </Link>
   )
@@ -19,6 +19,7 @@ const columns = [{
 
 const UserList = ({ list }) => (
   <Table
+    rowKey={record => record.id}
     style={{ minWidth: '600px' }}
     dataSource={list}
     columns={columns}
