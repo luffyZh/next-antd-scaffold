@@ -9,7 +9,6 @@ import Layout from '../components/Layout';
 import { RouterTitle } from '../constants/ConstTypes';
 import '../../assets/self-styles.less';
 
-
 class NextApp extends App {
   
   static async getInitialProps ({ Component, ctx }) {

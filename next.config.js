@@ -89,6 +89,9 @@ module.exports = withSize(
                 ecma: 6,
                 warnings: false,
                 extractComments: false, // remove comment
+                output: {
+                  comments: false
+                },
                 compress: {
                   drop_console: true // remove console
                 },
