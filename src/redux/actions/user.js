@@ -4,20 +4,20 @@ import {
   FETCH_USER_LIST_SUCCESS
 } from '../../constants/ActionTypes';
 
-export function fetchUserListData () {
+export function fetchUserList () {
   return {
     type: FETCH_USER_LIST
   };
 }
 
-export function fetchUserListDataSuccess (payload) {
+export function fetchUserListSuccess (payload) {
   return {
     type: FETCH_USER_LIST_SUCCESS,
     payload
   };
 }
 
-export function fetchUserListDataFail () {
+export function fetchUserListFail () {
   return {
     type: FETCH_USER_LIST_FAIL,
   };

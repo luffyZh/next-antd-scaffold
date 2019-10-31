@@ -26,11 +26,7 @@ function configureStore (initialState) {
     bindMiddleware([sagaMiddleware])
   );
 
-  store.runSagaTask = () => {
-    store.sagaTask = sagaMiddleware.run(rootSaga);
-  };
-
-  store.runSagaTask();
+  store.sagaTask = sagaMiddleware.run(rootSaga);
 
   // Hot reload reducers (requires Webpack or Browserify HMR to be enabled)
   if (process.env.NODE_ENV !== 'production' && module.hot) {

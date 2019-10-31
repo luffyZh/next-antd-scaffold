@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { fetchUserListData } from '../../redux/actions/user';
+import { fetchUserList } from '../../redux/actions/user';
 import UserList from '../../components/User/UserList';
 
 const mapStateToProps = state => ({
@@ -7,8 +7,8 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  fetchUserListData() {
-    dispatch(fetchUserListData());
+  fetchUserList() {
+    dispatch(fetchUserList());
   }
 });
 

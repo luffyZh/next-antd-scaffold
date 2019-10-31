@@ -1,9 +1,9 @@
 import UserList from '../../containers/user/list';
-import { fetchUserListData } from '../../redux/actions/user';
+import { fetchUserList } from '../../redux/actions/user';
 
 UserList.getInitialProps = async (props) => {
   const { store, isServer } = props.ctx;
-  store.dispatch(fetchUserListData());
+  await store.dispatch(fetchUserList());
   return { isServer };
 };
 
