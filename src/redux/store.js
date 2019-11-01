@@ -4,8 +4,6 @@ import rootReducer from './reducers/index';
 import rootSaga from './sagas/index';
 import userMiddleware from '../middlewares/client/user';
 
-const sagaMiddleware = createSagaMiddleware();
-
 const bindMiddleware = (middleware) => {
   // add route middleware
   middleware.push(userMiddleware);
@@ -20,17 +18,14 @@ const bindMiddleware = (middleware) => {
 };
 
 function configureStore (initialState) {
+  const sagaMiddleware = createSagaMiddleware();
   const store = createStore(
     rootReducer,
     initialState,
     bindMiddleware([sagaMiddleware])
   );
 
-  store.runSagaTask = () => {
-    store.sagaTask = sagaMiddleware.run(rootSaga);
-  };
-
-  store.runSagaTask();
+  store.sagaTask = sagaMiddleware.run(rootSaga);
 
   // Hot reload reducers (requires Webpack or Browserify HMR to be enabled)
   if (process.env.NODE_ENV !== 'production' && module.hot) {
