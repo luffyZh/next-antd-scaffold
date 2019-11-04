@@ -1,4 +1,3 @@
-import { Fragment } from 'react';
 import App from 'next/app';
 import Head from 'next/head';
 import { Provider } from 'react-redux';
@@ -24,7 +23,7 @@ class NextApp extends App {
   render () {
     const { Component, pageProps, store, router } = this.props;
     return (
-      <Fragment>
+      <>
         <Head>
           <meta name='viewport' content='width=device-width, initial-scale=1' />
           <meta charSet='utf-8' />
@@ -46,9 +45,9 @@ class NextApp extends App {
             <Component {...pageProps} router={router} />
           </Layout>
         </Provider>
-      </Fragment>
+      </>
     );
   }
 }
 
-export default withRedux(createStore)(withReduxSaga(NextApp));
+export default withRedux(createStore)(withReduxSaga({ async: true })(NextApp));
