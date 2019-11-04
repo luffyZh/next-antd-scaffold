@@ -4,6 +4,7 @@ const withSize = require('next-size');
 const lessToJS = require('less-vars-to-js');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 const TerserPlugin = require('terser-webpack-plugin');
+const OptimizeCssPlugin = require('optimize-css-assets-webpack-plugin');
 const fs = require('fs');
 const path = require('path');
 
@@ -98,6 +99,14 @@ module.exports = withSize(
                 ie8: false
               }
             }),
+            // optimize CSS
+            new OptimizeCssPlugin({
+              cssProcessor: require('cssnano'), //import cssnano option
+              cssProcessorOptions: { 
+                discardComments: { removeAll: true } 
+              },
+              canPrint: true // print info to console
+            })
         ]);
         config.module.rules.push({
           test: /\.js$/,
