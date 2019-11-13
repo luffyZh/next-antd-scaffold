@@ -110,6 +110,9 @@ $ pm2 start pm2.config.js
 
 - The ant-design style flash when page refresh!
 
-...
+- The solution of `ant-design` in the development environment style load is incomplete.
+
+- How to speed up packing in production?
+  ...
 
 Please check the [Faq documentation](./docs/FAQ.md)

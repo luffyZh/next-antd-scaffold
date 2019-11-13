@@ -16,9 +16,9 @@ class ErrorPage extends Component {
       case 200:
       case 404: {
         RenderComp = () => (
-          <div className='content-container'>
+          <div className='container'>
             <style jsx>{`
-              .content-container {
+              .container {
                 display: flex;
                 width: 100%;
                 height: 100%;
@@ -41,9 +41,9 @@ class ErrorPage extends Component {
       }
       case 500: {
         RenderComp = () => (
-          <div className='content-container'>
+          <div className='container'>
             <style jsx>{`
-              .content-container {
+              .container {
                 position: absolute;
                 top: 0;
                 display: flex;
