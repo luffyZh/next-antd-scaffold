@@ -50,4 +50,4 @@ class NextApp extends App {
   }
 }
 
-export default withRedux(createStore)(withReduxSaga({ async: true })(NextApp));
+export default withRedux(createStore)(withReduxSaga(NextApp));
