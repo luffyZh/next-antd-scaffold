@@ -136,6 +136,16 @@ String.prototype.repeat = repeat;
 Object.assign = assign;
 ```
 
+#### How to alias folder path?
+
+```
+// next.config.js
+
+// config alias
+config.resolve.alias['@containers'] =
+  path.resolve(__dirname, './src/containers');
+```
+
 #### Config the next.config.js
 
 ```
