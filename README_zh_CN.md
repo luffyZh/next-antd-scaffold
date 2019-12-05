@@ -49,7 +49,7 @@
   | ...                      // 其他文件
 ```
 
-## 🔨 如何使用
+## 📖 如何使用
 
 #### 开发环境
 
@@ -79,7 +79,7 @@
 - Ant-Design
 - Fetch
 
-## 🙊 如何通过 pm2 部署项目
+## 🔨 如何通过 pm2 部署项目
 
 ```bash
 # 1. install pm2
@@ -92,7 +92,7 @@ $ yarn build
 $ pm2 start pm2.config.js
 ```
 
-## ▶️ 通过 now 来进行部署
+## 🪂 通过 now 来进行部署
 
 <a target='__blank' href='https://zeit.co/now'><img src='https://avatars3.githubusercontent.com/in/8329?s=60&u=35934eb25f938206da3c68530ac900e2717abbc3&v=4' /></a>
 

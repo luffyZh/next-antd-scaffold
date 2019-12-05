@@ -51,7 +51,7 @@ English | [简体中文](./README_zh_CN.md)
   | ...                      // other files
 ```
 
-## 🔨 Usage
+## 📖 Usage
 
 #### development
 
@@ -81,7 +81,7 @@ English | [简体中文](./README_zh_CN.md)
 - Ant-Design
 - Fetch
 
-## 🙊 How to depoly application by pm2
+## 🔨 How to depoly application by pm2
 
 ```bash
 # 1. install pm2
@@ -94,7 +94,7 @@ $ yarn build
 $ pm2 start pm2.config.js
 ```
 
-## Deploy By now
+## 🪂 Deploy By now
 
 <a target='__blank' href='https://zeit.co/now'><img src='https://avatars3.githubusercontent.com/in/8329?s=60&u=35934eb25f938206da3c68530ac900e2717abbc3&v=4' /></a>
 
