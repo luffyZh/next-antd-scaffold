@@ -227,3 +227,52 @@ config.module.rules.push({
   loader: 'thread-loader'
 });
 ```
+
+## How to optimize bundle size?
+
+#### Optimize moment local.
+
+```
+// next.config.js
+const myWebpack = require('webpack');
+...
+new myWebpack.ContextReplacementPlugin(/moment[\/\\]locale$/, /zh-cn|en/),
+```
+
+#### Optimize antd icon dist.
+
+```
+// next.config.js
+...
+config.resolve.alias['@ant-design/icons/lib/dist$'] = path.resolve(__dirname, './assets/icons.js');
+```
+
+```
+// /assets/icons.js
+
+// 你自己手动引入的Icon，默认是outline
+export {
+  default as LoginOutline
+} from '@ant-design/icons/lib/outline/LoginOutline';
+export {
+  default as LogoutOutline
+} from '@ant-design/icons/lib/outline/LogoutOutline';
+export {
+  default as UserOutline
+} from '@ant-design/icons/lib/outline/UserOutline';
+...
+// 下面的 不是自己引入的，而是内置组件引入的，比如Input/Select/Datepicker等
+export {
+  default as SearchOutline
+} from '@ant-design/icons/lib/outline/SearchOutline';
+export {
+  default as DownOutline
+} from '@ant-design/icons/lib/outline/DownOutline';
+export {
+  default as UpOutline
+} from '@ant-design/icons/lib/outline/UpOutline';
+export {
+  default as CalendarOutline
+} from '@ant-design/icons/lib/outline/CalendarOutline';
+
+```
