@@ -1,7 +1,22 @@
 const express = require('express');
 const cp = require('child_process');
 const next = require('next');
+const os = require('os');
 const { publicRuntimeConfig, serverRuntimeConfig } = require('./next.config');
+
+function getIPAdress() {
+  const interfaces = os.networkInterfaces();
+  
+  for (let devName in interfaces) {
+    const iface = interfaces[devName];
+    for (let i = 0; i < iface.length; i++) {
+      const alias = iface[i];
+      if (alias.family === 'IPv4' && alias.address !== '127.0.0.1' && !alias.internal) {
+        return alias.address;
+      }
+    }
+  }
+}
 
 const { isDev } = publicRuntimeConfig;
 const { PORT } = serverRuntimeConfig;
@@ -21,6 +36,7 @@ app.prepare()
       if (err) throw err;
       const serverUrl = `http://localhost:${PORT}`;
       console.log(`> Ready on ${serverUrl}`);
+      console.log(`> Ready on http://${getIPAdress()}:${PORT}`);
       // development auto open browser
       if (isDev) {
         switch (process.platform) {
