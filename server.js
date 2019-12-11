@@ -35,8 +35,11 @@ app.prepare()
     server.listen(PORT, err => {
       if (err) throw err;
       const serverUrl = `http://localhost:${PORT}`;
-      console.log(`> Ready on ${serverUrl}`);
-      console.log(`> Ready on http://${getIPAdress()}:${PORT}`);
+      console.log(`
+        App is running at:
+        - Local: ${serverUrl}
+        - Network: http://${getIPAdress()}:${PORT}
+      `);
       // development auto open browser
       if (isDev) {
         switch (process.platform) {
