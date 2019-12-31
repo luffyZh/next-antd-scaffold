@@ -37,9 +37,9 @@ English | [简体中文](./README_zh_CN.md)
           | -- server            // server middlewares, deal node event
       | -- pages                 // Next.js routes
       | -- redux                 // redux directory
-          | -- actions           // deal all projectaction
-          | -- reducers          // deal all project reducer
-          | -- sagas             // sace all project saga
+          | -- actions           // deal all project actions
+          | -- reducers          // deal all project reducers
+          | -- sagas             // sace all project sagas
           | -- store.js          // the store of project
   | -- .babelrc              // babel config file
   | -- .eslintrc             // eslint config file
@@ -119,6 +119,7 @@ $ pm2 start pm2.config.js
 - The solution of `ant-design` in the development environment style load is incomplete.
 
 - How to speed up packing in production?
-  ...
+
+...
 
 Please check the [Faq documentation](./docs/FAQ.md)

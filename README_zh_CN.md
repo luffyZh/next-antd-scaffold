@@ -14,39 +14,39 @@
 
 ```
 ——————
-  | -- assets                    // 样式文件的设置，包括antd的主题覆盖
+  | -- assets                    // 样式文件的设置，包括 antd 的主题覆盖
   | -- docs                      // 文档目录
   | -- public                    // 静态资源目录
-      | -- static                // 兼容小于version9版本的静态资源目录
+      | -- static                // 兼容小于 version9 版本的静态资源目录
       | -- favicon.ico           // 一些存放于根路径的资源文件，比如seo文件
       | -- ...
-  | -- src                       // source目录，符合大众习惯
+  | -- src                       // source 目录，符合大众习惯
       | -- components            // React UI 组件
       | -- constants             // 系统常量文件夹
-          | -- ActionsTypes.js   // 存储redux所有的action常量
-          | -- ApiUrlForBE.js    // 存储所有的后端api常量
+          | -- ActionsTypes.js   // 存储 redux 所有的 action 常量
+          | -- ApiUrlForBE.js    // 存储所有的后端 API 常量
           | -- ...
       | -- containers            // React 状态组件
       | -- core                  // 核心方法目录
           | -- util.js           // 系统的一些公共方法
-          | -- nextFetch.js      // 为了方便使用封装了fetch
+          | -- nextFetch.js      // 为了方便使用封装了 unfetch
       | -- middlewares           // 中间件目录
-          | -- client            // 客户端中间件，处理redux的action
-          | -- server            // 服务端中间件，处理node模块
+          | -- client            // 客户端中间件，处理 redux 的 actions
+          | -- server            // 服务端中间件，处理 node 事件模块
       | -- pages                 // Next.js 路由目录
-      | -- redux                 // redux目录
-          | -- actions           // 处理所有的action
-          | -- reducers          // 处理所有的state
-          | -- sagas             // 处理所有的saga
-          | -- store.js          // 整个系统的store
-  | -- .babelrc              // babel配置文件
-  | -- .eslintrc             // eslint配置文件
+      | -- redux                 // redux 目录
+          | -- actions           // 处理所有的 actions
+          | -- reducers          // 处理所有的 reducers
+          | -- sagas             // 处理所有的 sagas
+          | -- store.js          // 整个系统的 store
+  | -- .babelrc                  // babel 配置文件
+  | -- .eslintrc                 // eslint 配置文件
   | -- .gitignore
-  | -- next.config.js        // Next.js 配置文件
+  | -- next.config.js            // Next.js 配置文件
   | -- package.json
-  | -- server.js             // server文件
-  | -- pm2.config.js         // pm2 部署文件
-  | ...                      // 其他文件
+  | -- server.js                 // server文件
+  | -- pm2.config.js             // pm2 部署文件
+  | ...                          // 其他文件
 ```
 
 ## 📖 如何使用
