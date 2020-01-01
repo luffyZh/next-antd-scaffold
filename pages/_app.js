@@ -1,4 +1,3 @@
-import { Fragment } from 'react';
 import App, { Container } from 'next/app';
 import Head from 'next/head';
 import { Provider } from 'react-redux';
@@ -8,7 +7,6 @@ import createStore from '../redux/store';
 import Layout from '../components/Layout';
 import { RouterTitle } from '../constants/ConstTypes';
 import '../assets/self-styles.less';
-
 
 class NextApp extends App {
   
@@ -25,7 +23,7 @@ class NextApp extends App {
   render () {
     const { Component, pageProps, store, router } = this.props;
     return (
-      <Fragment>
+      <>
         <Head>
           <meta name='viewport' content='width=device-width, initial-scale=1' />
           <meta charSet='utf-8' />
@@ -49,7 +47,7 @@ class NextApp extends App {
             </Layout>
           </Provider>
         </Container>
-      </Fragment>
+      </>
     );
   }
 }

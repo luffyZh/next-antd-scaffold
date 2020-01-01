@@ -1,10 +1,9 @@
-import { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import DynamicAntdTheme from 'dynamic-antd-theme';
 import Header from './Header';
 
 const Layout = ({ title, children }) => (
-  <Fragment>
+  <>
     <style jsx>{`
       .content-container {
         position: relative;
@@ -30,7 +29,7 @@ const Layout = ({ title, children }) => (
         }
       />
     </div>
-  </Fragment>
+  </>
 );
 export default Layout;
 
