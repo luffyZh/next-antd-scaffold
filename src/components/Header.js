@@ -1,28 +1,23 @@
-import PropTypes from 'prop-types';
 import Link from 'next/link';
 import getConfig from 'next/config';
-import { color_primary } from '../constants/CustomTheme';
+import { color_white } from '../constants/CustomTheme';
+import { Button } from 'antd';
 
 // Only holds serverRuntimeConfig and publicRuntimeConfig from next.config.js nothing else.
 const { publicRuntimeConfig: { staticFolder } } = getConfig();
 
-const Header = ({ title }) => (
+const Header = () => (
   <div id='header_bar' className='container'>
     <style jsx>{`
       .container {
         position: fixed;
+        display: flex;
+        align-items: center;
         top: 0;
         width: 100%;
         height: 60px;
-        background-color: ${color_primary};
+        background-color: ${color_white};
         z-index: 999;
-      }
-      h1 {
-        text-align: center;
-        line-height: 60px;
-        font-size: 1.6rem;
-        font-weight: 500;
-        color: #fff;
       }
       .logo-container {
         position: absolute;
@@ -37,30 +32,28 @@ const Header = ({ title }) => (
         display: inline-block;
         margin-left: 10px;
         font-size: 20px;
-        color: #fff;
         font-weight: 600;
       }
       .logo {
         width: 30px;
         height: 30px;
       }
+      .right-container {
+        position: absolute;
+        right: 20px;
+      }
     `}</style>
     <Link href='/'>
       <div className='logo-container'>
         <img className='logo' alt='logo' src={`${staticFolder}/logo.png`} />
-        <span className='sys-name'>Next-Antd-Scaffold</span>
+        <a className='sys-name'>Next-Antd-Scaffold</a>
       </div>
     </Link>
-    <h1>{title}</h1>
+    <div className='right-container'>
+      <Button style={{ margin: '0 10px' }} type='primary' ghost>登录</Button>
+      <Button type='primary'>注册</Button>
+    </div>
   </div>
 );
 
 export default Header;
-
-Header.propTypes = {
-  title: PropTypes.string
-};
-
-Header.defaultProps = {
-  title: ''
-};

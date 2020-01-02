@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import DynamicAntdTheme from 'dynamic-antd-theme';
 import Header from './Header';
 
-const Layout = ({ title, children }) => (
+const Layout = ({ children }) => (
   <>
     <style jsx>{`
       .content-container {
@@ -15,7 +15,7 @@ const Layout = ({ title, children }) => (
         background-color: #fff;
       }
     `}</style>
-    <Header title={title} />
+    <Header />
     <div className='content-container'>
       {children}
     </div>
@@ -24,9 +24,6 @@ const Layout = ({ title, children }) => (
       <DynamicAntdTheme
         style={{ display: 'flex', marginLeft: '10px' }}
         primaryColor='#52c41a'
-        themeChangeCallback={
-          color => document.getElementById('header_bar').style.backgroundColor = color
-        }
       />
     </div>
   </>
@@ -34,11 +31,9 @@ const Layout = ({ title, children }) => (
 export default Layout;
 
 Layout.propTypes = {
-  title: PropTypes.string,
   children: PropTypes.any
 };
 
 Layout.defaultProps = {
-  title: '',
   children: null
 };

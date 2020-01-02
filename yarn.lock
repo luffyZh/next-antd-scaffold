@@ -2502,9 +2502,10 @@ duplexify@^3.4.2, duplexify@^3.6.0:
     readable-stream "^2.0.0"
     stream-shift "^1.0.0"
 
-dynamic-antd-theme@^0.3.6:
-  version "0.3.6"
-  resolved "https://registry.npm.taobao.org/dynamic-antd-theme/download/dynamic-antd-theme-0.3.6.tgz#981bd92550d136793cfc99d1fd4fe131cb7e3537"
+dynamic-antd-theme@latest:
+  version "0.4.1"
+  resolved "https://registry.npm.taobao.org/dynamic-antd-theme/download/dynamic-antd-theme-0.4.1.tgz#284cc34162197c6943d2fb6ae0728b3fc07471f7"
+  integrity sha1-KEzDQWIZfGlD0vtq4HKLP8B0cfc=
 
 ecc-jsbn@~0.1.1:
   version "0.1.2"
