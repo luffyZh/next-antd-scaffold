@@ -50,8 +50,8 @@ const Header = () => (
       </div>
     </Link>
     <div className='right-container'>
-      <Button style={{ margin: '0 10px' }} type='primary' ghost>登录</Button>
-      <Button type='primary'>注册</Button>
+      <Button style={{ margin: '0 10px' }} type='primary' ghost>Login</Button>
+      <Button type='primary'>Register</Button>
     </div>
   </div>
 );
