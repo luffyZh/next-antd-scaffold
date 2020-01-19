@@ -53,6 +53,16 @@ module.exports = withSize(
       localIdentName: '[local]___[hash:base64:5]',
     },
     webpack: (config, { buildId, dev, isServer, defaultLoaders }) => {
+      /**
+       * 在 _app.js 引入 @sentry/node 包，当项目运行的时候，如果是 SSR 渲染，
+       * 则运行环境是 Node.js，而如果是客户端异常，也就是运行在浏览器端的时候，
+       * 使用 webpack 将 @sentry/node 替换为 @sentry/browser
+       * 可行的原因是因为 Next.js 的独特执行机制，它会在 server 端和 client 端
+       * 分别运行一次 webpack 函数，所以在 browser 的时候替换即可
+       */
+      if (!isServer) {
+        config.resolve.alias['@sentry/node'] = '@sentry/browser';
+      }
       if (isServer) {
         // deal antd style
         const antStyles = /antd\/.*?\/style.*?/
@@ -151,7 +161,8 @@ module.exports = withSize(
       isDev, // Pass through env variables
     },
     env: {
-      SERVER_HOST: 'http://www.luffyzhou.cn'
+      SERVER_HOST: 'http://www.luffyzhou.cn',
+      SENTRY_DSN: 'http://f4f2e85271e242e5b54c734dc34d8585@localhost:9000/6'
     }
   })
 );
