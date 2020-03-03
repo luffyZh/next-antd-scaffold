@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import { Button } from 'antd';
+
 const Counter = ({ increment, decrement, reset, count }) => (
   <div>
     <style jsx>{`
@@ -10,8 +11,12 @@ const Counter = ({ increment, decrement, reset, count }) => (
     <h1>
       Count: <span>{count}</span>
     </h1>
-    <Button onClick={() => increment()}>+1</Button>
-    <Button onClick={() => decrement()}>-1</Button>
+    <Button onClick={() => increment()}>
+      +1
+    </Button>
+    <Button onClick={() => decrement()}>
+      -1
+    </Button>
     <Button type='primary' onClick={() => reset()}>Reset</Button>
   </div>
 );

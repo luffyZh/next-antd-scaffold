@@ -53,26 +53,26 @@ module.exports = withSize(
       localIdentName: '[local]___[hash:base64:5]',
     },
     webpack: (config, { buildId, dev, isServer, defaultLoaders }) => {
-      if (isServer) {
-        // deal antd style
-        const antStyles = /antd\/.*?\/style.*?/
-        const origExternals = [...config.externals]
-        config.externals = [
-          (context, request, callback) => {
-            if (request.match(antStyles)) return callback()
-            if (typeof origExternals[0] === 'function') {
-              origExternals[0](context, request, callback)
-            } else {
-              callback()
-            }
-          },
-          ...(typeof origExternals[0] === 'function' ? [] : origExternals),
-        ]
-        config.module.rules.unshift({
-          test: antStyles,
-          use: 'null-loader',
-        })
-      }
+      // if (isServer) {
+      //   // deal antd style
+      //   const antStyles = /antd\/.*?\/style.*?/
+      //   const origExternals = [...config.externals]
+      //   config.externals = [
+      //     (context, request, callback) => {
+      //       if (request.match(antStyles)) return callback()
+      //       if (typeof origExternals[0] === 'function') {
+      //         origExternals[0](context, request, callback)
+      //       } else {
+      //         callback()
+      //       }
+      //     },
+      //     ...(typeof origExternals[0] === 'function' ? [] : origExternals),
+      //   ]
+      //   config.module.rules.unshift({
+      //     test: antStyles,
+      //     use: 'null-loader',
+      //   })
+      // }
       if (!dev) {
         config.plugins.push(
           ...[

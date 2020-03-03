@@ -1,7 +1,8 @@
 import Link from 'next/link';
 import getConfig from 'next/config';
-import { color_white } from '../constants/CustomTheme';
 import { Button } from 'antd';
+import { LoginOutlined, EditOutlined } from '@ant-design/icons';
+import { color_white } from '../constants/CustomTheme';
 
 // Only holds serverRuntimeConfig and publicRuntimeConfig from next.config.js nothing else.
 const { publicRuntimeConfig: { staticFolder } } = getConfig();
@@ -50,8 +51,14 @@ const Header = () => (
       </div>
     </Link>
     <div className='right-container'>
-      <Button style={{ margin: '0 10px' }} type='primary' ghost>Login</Button>
-      <Button type='primary'>Register</Button>
+      <Button style={{ margin: '0 10px' }} type='primary' ghost>
+        <LoginOutlined />
+        Login
+      </Button>
+      <Button type='primary'>
+        <EditOutlined />
+        Register
+      </Button>
     </div>
   </div>
 );

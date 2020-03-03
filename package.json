@@ -34,8 +34,9 @@
     "redux-saga"
   ],
   "dependencies": {
+    "@ant-design/icons": "^4.0.2",
     "@zeit/next-less": "^1.0.1",
-    "antd": "^3.8.4",
+    "antd": "^4.0.0",
     "babel-plugin-import": "^1.9.0",
     "dynamic-antd-theme": "latest",
     "es6-promise": "^4.2.5",
@@ -51,8 +52,8 @@
     "null-loader": "^3.0.0",
     "prop-types": "^15.6.2",
     "query-string": "^6.2.0",
-    "react": "^16.8.6",
-    "react-dom": "^16.8.6",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
     "react-redux": "^5.0.7",
     "redux": "^4.0.0",
     "redux-logger": "^3.0.6",
