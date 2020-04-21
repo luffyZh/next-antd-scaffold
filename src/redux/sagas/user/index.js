@@ -2,7 +2,7 @@
 import list from './list';
 
 const userSagas = [
-  ...list,
+  list,
 ];
 
 export default userSagas;

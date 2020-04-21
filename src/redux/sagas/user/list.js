@@ -21,9 +21,7 @@ export function* fetchUserList() {
   }
 }
 
-export default [
-  fork(fetchUserList)
-];
+export default fork(fetchUserList);
 
 
 
