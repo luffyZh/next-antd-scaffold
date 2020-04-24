@@ -136,16 +136,6 @@ String.prototype.repeat = repeat;
 Object.assign = assign;
 ```
 
-#### How to alias folder path?
-
-```
-// next.config.js
-
-// config alias
-config.resolve.alias['@containers'] =
-  path.resolve(__dirname, './src/containers');
-```
-
 #### Config the next.config.js
 
 ```
@@ -171,7 +161,19 @@ webpack: function (cfg) {
 ...
 ```
 
-#### Downgrade your Next version to '7.0.2'
+#### If still not works, downgrade your Next version to '7.0.2'
+
+> The latest version of Next.js(Version9) has a lot of polyfill built in so we can use it on demand for our own projects. This project is also configured with polyfill, which is currently compatible with IE11.
+
+## How to alias folder path?
+
+```
+// next.config.js
+
+// config alias
+config.resolve.alias['@containers'] =
+  path.resolve(__dirname, './src/containers');
+```
 
 ## The ant-design style flash when page refresh!
 

@@ -10,6 +10,12 @@
 
 > 如果你更喜欢使用 next-v8.1.0 的版本. 地址在这里 [next-antd-scaffold_version8](https://github.com/luffyZh/next-antd-scaffold/tree/v1.0).
 
+## 🌍 Browser Support
+
+| ![Chrome](https://raw.github.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png) | ![Edge](https://raw.github.com/alrra/browser-logos/master/src/edge/edge_48x48.png) | ![Firefox](https://raw.github.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png) | ![IE](https://raw.github.com/alrra/browser-logos/master/src/archive/internet-explorer_9-11/internet-explorer_9-11_48x48.png) | ![Safari](https://raw.github.com/alrra/browser-logos/master/src/safari/safari_48x48.png) |
+| ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
+| Chrome 39.0+ ✔                                                                           | Edge 12.0+ ✔                                                                       | Firefox 30.0+ ✔                                                                             | IE 11+ ✔                                                                                                                     | Safari 9.1+ ✔                                                                            |
+
 ## 📁 目录结构
 
 ```

@@ -16,7 +16,11 @@ const themeVariables = lessToJS(
   )
 );
 
-const isDev = process.env.NODE_ENV !== 'production';
+// development or other environment
+const isDev = !process.env.NODE_ENV || process.env.NODE_ENV === 'development';
+
+// analyse use webpack-bundle-analyzer 
+const isAnalyse = process.env.NODE_ENV === 'analyse';
 
 // fix antd bug in dev development
 const devAntd = '@import "~antd/dist/antd.less";\n';
@@ -73,17 +77,33 @@ module.exports = withSize(
           use: 'null-loader',
         })
       }
+      // analyse use webpack-bundle-analyser
+      if (isAnalyse) {
+        new BundleAnalyzerPlugin({
+          analyzerMode: 'disabled',
+          // For all options see https://github.com/th0r/webpack-bundle-analyzer#as-plugin
+          generateStatsFile: true,
+          // Will be available at `.next/stats.json`
+          statsFilename: 'stats.json'
+        })
+      }
       if (!dev) {
+        // polyfill IE11
+        const originalEntry = config.entry;
+        config.entry = async () => {
+          const entries = await originalEntry();
+          if (
+            entries['main.js'] &&
+            !entries['main.js'].includes('./assets/polyfills.js')
+          ) {
+            entries['main.js'].unshift('./assets/polyfills.js');
+          }
+          return entries;
+        }
+        // add other webpack plugins
         config.plugins.push(
           ...[
-            new BundleAnalyzerPlugin({
-              analyzerMode: 'disabled',
-              // For all options see https://github.com/th0r/webpack-bundle-analyzer#as-plugin
-              generateStatsFile: true,
-              // Will be available at `.next/stats.json`
-              statsFilename: 'stats.json'
-            }),
-            // 代替uglyJsPlugin
+            // replace uglyJsPlugin
             new TerserPlugin({
               cache: true,
               terserOptions: {
