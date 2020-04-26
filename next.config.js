@@ -1,9 +1,9 @@
 /* eslint-disable */
 const withLess = require('@zeit/next-less');
-const withSize = require('next-size');
 const lessToJS = require('less-vars-to-js');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 const TerserPlugin = require('terser-webpack-plugin');
+const withSourceMaps = require('@zeit/next-source-maps')();
 const OptimizeCssPlugin = require('optimize-css-assets-webpack-plugin');
 const fs = require('fs');
 const path = require('path');
@@ -49,7 +49,7 @@ const srcFolder = [
   path.resolve(__dirname, './src/redux')
 ]
 
-module.exports = withSize(
+module.exports = withSourceMaps(
   withLess({
     lessLoaderOptions: {
       javascriptEnabled: true,

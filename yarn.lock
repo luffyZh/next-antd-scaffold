@@ -1261,6 +1261,11 @@
     "@zeit/next-css" "1.0.1"
     less-loader "4.1.0"
 
+"@zeit/next-source-maps@0.0.4-canary.1":
+  version "0.0.4-canary.1"
+  resolved "https://registry.npm.taobao.org/@zeit/next-source-maps/download/@zeit/next-source-maps-0.0.4-canary.1.tgz#5051ff8425e5f615da2d21dd08a99284fbb63d7d"
+  integrity sha1-UFH/hCXl9hXaLSHdCKmShPu2PX0=
+
 accepts@~1.3.7:
   version "1.3.7"
   resolved "https://registry.yarnpkg.com/accepts/-/accepts-1.3.7.tgz#531bc726517a3b2b41f850021c6cc15eaab507cd"
@@ -4811,12 +4816,6 @@ next-redux-wrapper@^3.0.0:
   version "3.0.0"
   resolved "https://registry.npm.taobao.org/next-redux-wrapper/download/next-redux-wrapper-3.0.0.tgz#ba5f1bbbe5169c1c77fa6d1eab36b42ace63a231"
   integrity sha1-ul8bu+UWnBx3+m0eqza0Ks5jojE=
-
-next-size@^2.1.0:
-  version "2.1.0"
-  resolved "https://registry.npm.taobao.org/next-size/download/next-size-2.1.0.tgz#d6caa5506db0950d6e61701f9fa8237f39335ee2"
-  dependencies:
-    chalk "^2.4.2"
 
 next-tick@~1.0.0:
   version "1.0.0"
