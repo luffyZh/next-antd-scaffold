@@ -243,6 +243,10 @@ new myWebpack.ContextReplacementPlugin(/moment[\/\\]locale$/, /zh-cn|en/),
 
 #### Optimize antd icon dist.
 
+- ant-design v4+ —— Icon optimization is no longer required
+
+- If you use the V3 or lower version，you can optimization icon
+
 ```
 // next.config.js
 ...
