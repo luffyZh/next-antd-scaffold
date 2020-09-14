@@ -118,7 +118,7 @@ webpack: (config, {...args}) => {
 #### Add polyfills.js in your project.
 
 ```
-// /core/polyfills.js
+// /cores/polyfills.js
 /* eslint no-extend-native: 0 */
 // core-js comes with Next.js. So, you can import it like below
 import includes from 'core-js/library/fn/string/virtual/includes';
@@ -148,9 +148,9 @@ webpack: function (cfg) {
 
       if (
         entries['main.js'] &&
-        !entries['main.js'].includes('./core/polyfills.js')
+        !entries['main.js'].includes('./cores/polyfills.js')
       ) {
-        entries['main.js'].unshift('./core/polyfills.js')
+        entries['main.js'].unshift('./cores/polyfills.js')
       }
 
       return entries

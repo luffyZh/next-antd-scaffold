@@ -1,6 +1,6 @@
 import fetch from 'isomorphic-unfetch';
 import qs from 'query-string';
-import { filterObject } from './util';
+import { filterObject } from './utils';
 
 // initial fetch
 const nextFetch = Object.create(null);

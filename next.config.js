@@ -39,16 +39,6 @@ if (typeof require !== 'undefined') {
   require.extensions['.less'] = () => {}
 }
 
-const srcFolder = [
-  path.resolve(__dirname, './src/components'),
-  path.resolve(__dirname, './src/constants'),
-  path.resolve(__dirname, './src/containers'),
-  path.resolve(__dirname, './src/core'),
-  path.resolve(__dirname, './src/middlewares'),
-  path.resolve(__dirname, './src/pages'),
-  path.resolve(__dirname, './src/redux')
-]
-
 module.exports = withSize(
   withLess({
     lessLoaderOptions: {
@@ -130,7 +120,7 @@ module.exports = withSize(
         ]);
         config.module.rules.push({
           test: /\.js$/,
-          include: srcFolder,
+          include: path.resolve(__dirname, './src'),
           options: {
             workerParallelJobs: 50,
             // additional node.js arguments
@@ -143,7 +133,7 @@ module.exports = withSize(
         config.module.rules.push({
           test: /\.js$/,
           enforce: 'pre',
-          include: srcFolder,
+          include: path.resolve(__dirname, './src'),
           options: {
             configFile: path.resolve('.eslintrc'),
             eslint: {
