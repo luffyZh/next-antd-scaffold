@@ -1,11 +1,13 @@
+import { END } from 'redux-saga';
+import { wrapper } from '../../redux/store';
 import UserList from '../../containers/user/list';
 import { fetchUserList } from '../../redux/actions/user';
 
-UserList.getInitialProps = async (props) => {
-  const { store, isServer } = props.ctx;
+export const getStaticProps = wrapper.getStaticProps(async ({ store }) => {
   store.dispatch(fetchUserList());
-  return { isServer };
-};
+  store.dispatch(END);
+  await store.sagaTask.toPromise();
+});
 
 export default UserList;
 
