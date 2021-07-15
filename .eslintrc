@@ -15,7 +15,7 @@
   "rules":{
     "no-console":0,
     "indent": [
-      2,
+      0,
       2,
       {
         "SwitchCase": 1,

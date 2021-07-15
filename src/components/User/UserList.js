@@ -1,7 +1,6 @@
-import PropTypes from 'prop-types';
 import { Table } from 'antd';
 import Link from 'next/link';
-import { useStore } from 'react-redux';
+import { useSelector } from 'react-redux';
 
 const columns = [{
   title: 'Username',
@@ -19,8 +18,7 @@ const columns = [{
 }];
 
 const UserList = () => {
-  const { getState } = useStore();
-  const { user: { list } } = getState();
+  const list = useSelector(state => state.user.list);
   return (
     <Table
       rowKey={record => record.id}
@@ -33,7 +31,3 @@ const UserList = () => {
 };
 
 export default UserList;
-
-UserList.propTypes = {
-  list: PropTypes.array.isRequired
-};

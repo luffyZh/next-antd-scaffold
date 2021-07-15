@@ -3,7 +3,7 @@ import { fetchUserList } from '../../redux/actions/user';
 import UserList from '../../components/User/UserList';
 
 const mapStateToProps = state => ({
-  list: state.user.list.list,
+  list: state.user.list,
 });
 
 const mapDispatchToProps = dispatch => ({
