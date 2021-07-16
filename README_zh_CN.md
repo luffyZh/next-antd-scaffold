@@ -8,7 +8,7 @@
 
 [Next-Antd-Scaffold-Demo](https://next-antd-scaffold.luffyzh.now.sh/)
 
-> 如果你更喜欢使用 next-v8.1.0 的版本. 地址在这里 [next-antd-scaffold_version8](https://github.com/luffyZh/next-antd-scaffold/tree/v1.0).
+> 如果你想用的版本小于 Next.js 11. 可以在这里找到更多版本的脚手架内容 [🌲 Versions History](https://github.com/luffyZh/next-antd-scaffold/releases).
 
 ## 🌍 Browser Support
 
@@ -103,6 +103,10 @@ $ pm2 start pm2.config.js
 
 ## 🌲 版本历史
 
+### [next_version_11](https://github.com/luffyZh/next-antd-scaffold/releases/tag/v1.4)
+
+- webpack 5
+
 ### [next_version_10](https://github.com/luffyZh/next-antd-scaffold/releases/tag/v1.3)
 
 - Next.js 版本升级到 10 以上
@@ -112,6 +116,8 @@ $ pm2 start pm2.config.js
 
 - Next.js 版本是 9.3.5
 - 组件是 hooks + class，Redux 还没有用 hooks
+
+### [next_verion_8.1.0](https://github.com/luffyZh/next-antd-scaffold/releases/tag/v1.0)
 
 ## 💐 更多示例
 

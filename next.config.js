@@ -1,19 +1,8 @@
 /* eslint-disable */
-const fs = require('fs');
 const path = require('path');
-const withLess = require('@zeit/next-less');
-const lessToJS = require('less-vars-to-js');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 const TerserPlugin = require('terser-webpack-plugin');
-const OptimizeCssPlugin = require('optimize-css-assets-webpack-plugin');
-
-// Where your antd-custom.less file lives
-const themeVariables = lessToJS(
-  fs.readFileSync(
-    path.resolve(__dirname, './assets/antd-custom.less'),
-    'utf8',
-  )
-);
+const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 
 // development or other environment
 const isDev = !process.env.NODE_ENV || process.env.NODE_ENV === 'development';
@@ -21,51 +10,9 @@ const isDev = !process.env.NODE_ENV || process.env.NODE_ENV === 'development';
 // analyse use webpack-bundle-analyzer 
 const isAnalyse = process.env.NODE_ENV === 'analyse';
 
-// fix antd bug in dev development
-const devAntd = '@import "~antd/dist/antd.less";\n';
-const stylesData = fs.readFileSync(
-  path.resolve(__dirname, './assets/_styles.less'),
-  'utf-8'
-);
-fs.writeFileSync(
-  path.resolve(__dirname, './assets/self-styles.less'),
-  isDev ? `${devAntd}${stylesData}` : stylesData,
-  'utf-8'
-);
-
-// fix: prevents error when .css files are required by node
-if (typeof require !== 'undefined') {
-  require.extensions['.less'] = () => {}
-}
-
-module.exports = withLess({
-  lessLoaderOptions: {
-    javascriptEnabled: true,
-    modifyVars: themeVariables,
-    localIdentName: '[local]___[hash:base64:5]',
-  },
-  webpack: (config, { buildId, dev, isServer, defaultLoaders }) => {
+module.exports = {
+  webpack: (config, { dev, isServer }) => {
     config.resolve.alias['@'] = path.resolve(__dirname, './src/');
-    if (isServer) {
-      // deal antd style
-      const antStyles = /antd\/.*?\/style.*?/
-      const origExternals = [...config.externals]
-      config.externals = [
-        (context, request, callback) => {
-          if (request.match(antStyles)) return callback()
-          if (typeof origExternals[0] === 'function') {
-            origExternals[0](context, request, callback)
-          } else {
-            callback()
-          }
-        },
-        ...(typeof origExternals[0] === 'function' ? [] : origExternals),
-      ]
-      config.module.rules.unshift({
-        test: antStyles,
-        use: 'null-loader',
-      })
-    }
     // analyse use webpack-bundle-analyser
     if (isAnalyse) {
       new BundleAnalyzerPlugin({
@@ -89,16 +36,14 @@ module.exports = withLess({
         }
         return entries;
       }
-      // add other webpack plugins
-      config.plugins.push(
-        ...[
-          // replace uglyJsPlugin
+      config.optimization = {
+        minimize: true,
+        minimizer: [
           new TerserPlugin({
-            cache: true,
+            parallel: true,
             terserOptions: {
               ecma: 6,
               warnings: false,
-              extractComments: false, // remove comment
               output: {
                 comments: false
               },
@@ -108,15 +53,15 @@ module.exports = withLess({
               ie8: false
             }
           }),
-          // optimize CSS
-          new OptimizeCssPlugin({
-            cssProcessor: require('cssnano'), //import cssnano option
-            cssProcessorOptions: { 
-              discardComments: { removeAll: true } 
-            },
-            canPrint: true // print info to console
-          })
-      ]);
+          new CssMinimizerPlugin({
+            parallel: true,
+            minify: [
+              CssMinimizerPlugin.cssnanoMinify,
+              CssMinimizerPlugin.cleanCssMinify
+            ],
+          }),
+        ],
+      }
       config.module.rules.push({
         test: /\.js$/,
         include: path.resolve(__dirname, './src'),
@@ -161,4 +106,4 @@ module.exports = withLess({
   env: {
     SERVER_HOST: 'http://www.luffyzhou.cn'
   }
-});
+};
