@@ -1,4 +1,6 @@
-{
+const path = require('path');
+
+module.exports = {
   "parser": "babel-eslint",
   "parserOptions": {
     "ecmaVersion": 6,
@@ -15,7 +17,7 @@
   "rules":{
     "no-console":0,
     "indent": [
-      2,
+      0,
       2,
       {
         "SwitchCase": 1,
@@ -23,10 +25,11 @@
       }
     ],
     "react/jsx-uses-vars": [2],
-    "semi": [2, "always"],
+    "semi": [1, "always"],
     "linebreak-style": 0,
     "consistent-return": 0,
     "no-use-before-define": 0,
+    "no-unused-vars": 0,
     "no-multi-assign": 0,
     "no-lonely-if": 1,
     "no-nested-ternary": 0,
@@ -37,7 +40,7 @@
     "react/sort-comp": 1,
     "react/no-string-refs": 0,
     "react/prefer-stateless-function": 0,
-    "react/prop-types": 2,
+    "react/prop-types": 0,
     "react/require-default-props": [2, { "forbidDefaultForRequired": true }],
     "jsx-a11y/no-static-element-interactions": 0,
     "keyword-spacing": [2, { "before": true }],
@@ -55,6 +58,14 @@
   "settings": {
     "react": {                  
       "version": "detect"            
+    },
+    "import/resolver": {
+      "alias": {
+        "map": [
+          ["@/", path.resolve(__dirname, './src')],
+        ],
+        "extensions": ['.ts', '.js', '.jsx', '.json']
+      }
     }
   }
-}
+};

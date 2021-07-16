@@ -1,6 +1,6 @@
-import PropTypes from 'prop-types';
 import { Table } from 'antd';
 import Link from 'next/link';
+import { useSelector } from 'react-redux';
 
 const columns = [{
   title: 'Username',
@@ -17,18 +17,17 @@ const columns = [{
   key: 'email',
 }];
 
-const UserList = ({ list }) => (
-  <Table
-    rowKey={record => record.id}
-    style={{ minWidth: '600px' }}
-    dataSource={list}
-    columns={columns}
-    bordered
-  />
-);
+const UserList = () => {
+  const list = useSelector(state => state.user.list);
+  return (
+    <Table
+      rowKey={record => record.id}
+      style={{ minWidth: '600px' }}
+      dataSource={list}
+      columns={columns}
+      bordered
+    />
+  );
+};
 
 export default UserList;
-
-UserList.propTypes = {
-  list: PropTypes.array.isRequired
-};

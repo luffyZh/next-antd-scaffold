@@ -1,5 +1,6 @@
 import { createStore, applyMiddleware } from 'redux';
 import createSagaMiddleware from 'redux-saga';
+import { createWrapper } from 'next-redux-wrapper';
 import rootReducer from './reducers/index';
 import rootSaga from './sagas/index';
 import userMiddleware from '../middlewares/client/user';
@@ -17,11 +18,10 @@ const bindMiddleware = (middleware) => {
   return applyMiddleware(...middleware);
 };
 
-function configureStore (initialState) {
+function configureStore () {
   const sagaMiddleware = createSagaMiddleware();
   const store = createStore(
     rootReducer,
-    initialState,
     bindMiddleware([sagaMiddleware])
   );
 
@@ -39,3 +39,5 @@ function configureStore (initialState) {
 }
 
 export default configureStore;
+
+export const wrapper = createWrapper(configureStore, { debug: true });

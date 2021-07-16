@@ -1,14 +1,15 @@
 import {
   INCREMENT,
   DECREMENT,
-  RESET
+  RESET,
+  ADD_TO_NUMBER
 } from '../../../constants/ActionTypes';
 
 const initialState = {
   count: 0
 };
 
-const counter = (state = initialState, { type }) => {
+const counter = (state = initialState, { type, payload }) => {
   switch (type) {
     case INCREMENT:
       return {
@@ -25,6 +26,12 @@ const counter = (state = initialState, { type }) => {
         ...state,
         count: 0
       };
+    case ADD_TO_NUMBER: {
+      return {
+        ...state,
+        count: payload
+      };
+    }
     default:
       return state;
   }

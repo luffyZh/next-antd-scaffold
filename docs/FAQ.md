@@ -167,13 +167,53 @@ webpack: function (cfg) {
 
 ## How to alias folder path?
 
-```
-// next.config.js
+- 1 - next.config.js webpack resolve alias
 
-// config alias
-config.resolve.alias['@containers'] =
-  path.resolve(__dirname, './src/containers');
+  ```
+  // next.config.js
+
+  // config alias
+  config.resolve.alias['@containers'] =
+    path.resolve(__dirname, './src/containers');
+  ```
+
+- 2 - eslint resolve alias
+
+```bash
+npm install eslint-plugin-import eslint-import-resolver-alias --save-dev
 ```
+
+```js
+// .eslintrc.js
+"settings": {
+  "react": {
+    "version": "detect"
+  },
+  "import/resolver": {
+    "alias": {
+      "map": [
+        ["@/", path.resolve(__dirname, './src')],
+      ],
+      "extensions": ['.ts', '.js', '.jsx', '.json']
+    }
+  }
+}
+```
+
+- 3 - jsconfig.js
+
+```js
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"],
+    }
+  }
+}
+```
+
+> VSCode install plugin: Alias resolver
 
 ## The ant-design style flash when page refresh!
 
