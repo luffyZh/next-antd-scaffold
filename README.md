@@ -34,7 +34,6 @@ English | [简体中文](./README_zh_CN.md)
           | -- ActionsTypes.js   // save all action type
           | -- ApiUrlForBE.js    // save all apiUrl
           | -- ...
-      | -- containers            // React container component
       | -- core                  // mehtod dirctory
           | -- util.js           // project method
           | -- nextFetch.js      // packing unfetch for easy use
@@ -103,6 +102,14 @@ $ pm2 start pm2.config.js
 ## 🪂 Deploy By now
 
 <a target='__blank' href='https://zeit.co/now'><img src='https://avatars3.githubusercontent.com/in/8329?s=60&u=35934eb25f938206da3c68530ac900e2717abbc3&v=4' /></a>
+
+## 🌲 Versions History
+
+### [next_version_10](https://github.com/luffyZh/next-antd-scaffold/releases/tag/v1.1)
+
+- All hooks API (Component/Redux)
+
+### [next_verion_9.3.5](https://github.com/luffyZh/next-antd-scaffold/releases/tag/v1.1)
 
 ## 💐 More Demo
 

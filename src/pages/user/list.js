@@ -1,7 +1,7 @@
 import { END } from 'redux-saga';
-import { wrapper } from '../../redux/store';
-import UserList from '../../containers/user/list';
-import { fetchUserList } from '../../redux/actions/user';
+import { wrapper } from '@/redux/store';
+import UserList from '@/components/User/UserList';
+import { fetchUserList } from '@/redux/actions/user';
 
 export const getStaticProps = wrapper.getStaticProps(async ({ store }) => {
   store.dispatch(fetchUserList());

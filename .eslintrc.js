@@ -1,4 +1,6 @@
-{
+const path = require('path');
+
+module.exports = {
   "parser": "babel-eslint",
   "parserOptions": {
     "ecmaVersion": 6,
@@ -56,6 +58,14 @@
   "settings": {
     "react": {                  
       "version": "detect"            
+    },
+    "import/resolver": {
+      "alias": {
+        "map": [
+          ["@/", path.resolve(__dirname, './src')],
+        ],
+        "extensions": ['.ts', '.js', '.jsx', '.json']
+      }
     }
   }
-}
+};
