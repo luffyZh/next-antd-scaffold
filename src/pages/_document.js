@@ -18,6 +18,7 @@ export default class MyDocument extends Document {
             body {
               position: absolute;
               top: 0;
+              background-color: #f3f3f3;
             }
           `}</style>
         </Head>
