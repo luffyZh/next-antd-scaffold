@@ -2,7 +2,6 @@
 const fs = require('fs');
 const path = require('path');
 const withLess = require('@zeit/next-less');
-const withSize = require('next-size');
 const lessToJS = require('less-vars-to-js');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 const TerserPlugin = require('terser-webpack-plugin');

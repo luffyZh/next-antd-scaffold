@@ -4339,12 +4339,6 @@ next-redux-wrapper@^6.0.2:
   resolved "https://registry.nlark.com/next-redux-wrapper/download/next-redux-wrapper-6.0.2.tgz#b8dcd214e7b5cedd7a2a611ddb60422384d24374"
   integrity sha1-uNzSFOe1zt16KmEd22BCI4TSQ3Q=
 
-next-size@^2.1.0:
-  version "2.1.0"
-  resolved "https://registry.npm.taobao.org/next-size/download/next-size-2.1.0.tgz#d6caa5506db0950d6e61701f9fa8237f39335ee2"
-  dependencies:
-    chalk "^2.4.2"
-
 next@^10.0.1:
   version "10.2.3"
   resolved "https://registry.nlark.com/next/download/next-10.2.3.tgz?cache=0&sync_timestamp=1626272724687&other_urls=https%3A%2F%2Fregistry.nlark.com%2Fnext%2Fdownload%2Fnext-10.2.3.tgz#5aa058a63626338cea91c198fda8f2715c058394"
