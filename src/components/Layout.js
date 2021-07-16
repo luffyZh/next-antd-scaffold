@@ -23,7 +23,6 @@ function Layout({ children }) {
         Change Theme:
         <DynamicAntdTheme
           style={{ display: 'flex', marginLeft: '10px' }}
-          primaryColor='#52c41a'
         />
       </div>
     </>
