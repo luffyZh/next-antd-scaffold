@@ -32,7 +32,6 @@
           | -- ActionsTypes.js   // 存储 redux 所有的 action 常量
           | -- ApiUrlForBE.js    // 存储所有的后端 API 常量
           | -- ...
-      | -- containers            // React 状态组件
       | -- core                  // 核心方法目录
           | -- util.js           // 系统的一些公共方法
           | -- nextFetch.js      // 为了方便使用封装了 unfetch
@@ -101,6 +100,18 @@ $ pm2 start pm2.config.js
 ## 🪂 通过 now 来进行部署
 
 <a target='__blank' href='https://zeit.co/now'><img src='https://avatars3.githubusercontent.com/in/8329?s=60&u=35934eb25f938206da3c68530ac900e2717abbc3&v=4' /></a>
+
+## 🌲 版本历史
+
+### [next_version_10](https://github.com/luffyZh/next-antd-scaffold/releases/tag/v1.2)
+
+- Next.js 版本升级到 10 以上
+- 全面拥抱 hooks API (Component/Redux)
+
+### [next_verion_9.3.5](https://github.com/luffyZh/next-antd-scaffold/releases/tag/v1.1)
+
+- Next.js 版本是 9.3.5
+- 组件是 hooks + class，Redux 还没有用 hooks
 
 ## 💐 更多示例
 
