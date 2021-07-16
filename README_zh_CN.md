@@ -103,7 +103,7 @@ $ pm2 start pm2.config.js
 
 ## 🌲 版本历史
 
-### [next_version_10](https://github.com/luffyZh/next-antd-scaffold/releases/tag/v1.2)
+### [next_version_10](https://github.com/luffyZh/next-antd-scaffold/releases/tag/v1.3)
 
 - Next.js 版本升级到 10 以上
 - 全面拥抱 hooks API (Component/Redux)

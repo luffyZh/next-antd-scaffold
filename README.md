@@ -105,7 +105,7 @@ $ pm2 start pm2.config.js
 
 ## 🌲 Versions History
 
-### [next_version_10](https://github.com/luffyZh/next-antd-scaffold/releases/tag/v1.2)
+### [next_version_10](https://github.com/luffyZh/next-antd-scaffold/releases/tag/v1.3)
 
 - All hooks API (Component/Redux)
 
