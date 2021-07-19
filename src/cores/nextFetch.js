@@ -1,4 +1,3 @@
-import fetch from 'isomorphic-unfetch';
 import qs from 'query-string';
 import { filterObject } from './utils';
 

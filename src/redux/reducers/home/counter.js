@@ -3,7 +3,7 @@ import {
   DECREMENT,
   RESET,
   ADD_TO_NUMBER
-} from '../../../constants/ActionTypes';
+} from '@/constants/ActionTypes';
 
 const initialState = {
   count: 0

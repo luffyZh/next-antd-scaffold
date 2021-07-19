@@ -1,28 +1,17 @@
 /* eslint-disable */
 const path = require('path');
-const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 const TerserPlugin = require('terser-webpack-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
+const withBundleAnalyzer = require('@next/bundle-analyzer')({
+  enabled: process.env.ANALYZE === 'true',
+});
 
 // development or other environment
 const isDev = !process.env.NODE_ENV || process.env.NODE_ENV === 'development';
 
-// analyse use webpack-bundle-analyzer 
-const isAnalyse = process.env.NODE_ENV === 'analyse';
-
-module.exports = {
+module.exports = withBundleAnalyzer({
   webpack: (config, { dev, isServer }) => {
     config.resolve.alias['@'] = path.resolve(__dirname, './src/');
-    // analyse use webpack-bundle-analyser
-    if (isAnalyse) {
-      new BundleAnalyzerPlugin({
-        analyzerMode: 'disabled',
-        // For all options see https://github.com/th0r/webpack-bundle-analyzer#as-plugin
-        generateStatsFile: true,
-        // Will be available at `.next/stats.json`
-        statsFilename: 'stats.json'
-      })
-    }
     if (!dev) {
       // polyfill IE11
       const originalEntry = config.entry;
@@ -103,7 +92,4 @@ module.exports = {
     staticFolder: '/static',
     isDev, // Pass through env variables
   },
-  env: {
-    SERVER_HOST: 'http://www.luffyzhou.cn'
-  }
-};
+});

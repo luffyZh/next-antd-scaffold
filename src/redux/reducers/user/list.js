@@ -2,7 +2,7 @@ import {
   FETCH_USER_LIST,
   FETCH_USER_LIST_FAIL,
   FETCH_USER_LIST_SUCCESS
-} from '../../../constants/ActionTypes';
+} from '@/constants/ActionTypes';
 
 const initialState = [];
 

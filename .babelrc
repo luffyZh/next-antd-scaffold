@@ -15,7 +15,6 @@
     ]
   ],
   "plugins": [
-    ["lodash"],
     ["@babel/plugin-transform-runtime"]
   ]
 }

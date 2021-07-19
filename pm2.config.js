@@ -2,7 +2,7 @@ module.exports = {
   apps: [
     {
       name: 'next-antd-scaffold',
-      script: './server.js',
+      script: './server.js', // start script
       cwd: './', // current workspace
       watch: [
         // watch directorys and restart when they change

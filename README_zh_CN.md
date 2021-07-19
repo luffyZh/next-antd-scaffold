@@ -1,4 +1,5 @@
 ![](https://user-gold-cdn.xitu.io/2019/1/26/16889da2c2c4c0ac?imageView2/1/w/1304/h/734/q/85/interlace/1)
+
 一个基于 Next.js 的简易脚手架，内含`ant-design`、`redux`、`redux-saga`、`fetch`以及`pm2`，从开发到部署一站式服务。
 
 [![Deploy Status](https://circleci.com/gh/zeit/now-desktop.svg?style=shield)](https://next-antd-scaffold.luffyzh.now.sh/)

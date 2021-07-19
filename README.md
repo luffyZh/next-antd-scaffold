@@ -10,7 +10,7 @@ English | [简体中文](./README_zh_CN.md)
 
 [Next-Antd-Scaffold-Demo](https://next-antd-scaffold.luffyzh.now.sh/)
 
-> If you like use the next version is lower 11. Please check more version from there [🌲 Versions History](https://github.com/luffyZh/next-antd-scaffold/releases).
+> If you like use the next version is lower version 11. Please check more version from there [🌲 Versions History](https://github.com/luffyZh/next-antd-scaffold/releases).
 
 ## 🌍 Browser Support
 

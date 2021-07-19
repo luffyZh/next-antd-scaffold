@@ -1,10 +1,10 @@
-import fetch from 'isomorphic-unfetch';
 import { take, put, fork } from 'redux-saga/effects';
 import {
   FETCH_USER_LIST,
-} from '../../../constants/ActionTypes';
-import { fetchUserListFail, fetchUserListSuccess } from '../../actions/user';
-import api from '../../../constants/ApiUrlForBE';
+} from '@/constants/ActionTypes';
+import { fetchUserListFail, fetchUserListSuccess } from '@/redux/actions/user';
+import api from '@/constants/ApiUrlForBE';
+
 /**
  * userList saga
  */
