@@ -4,6 +4,7 @@ A simple scaffold based on Next.js for quick use with ant-design, redux, redux-s
 English | [简体中文](./README_zh_CN.md)
 
 [![build-passing](https://img.shields.io/badge/build-passing-brightgreen)](<(https://next-antd-scaffold.luffyzh.now.sh/)>)
+![MIT License](https://img.shields.io/badge/license-MIT-blue)
 [![Made By Vercel](https://camo.githubusercontent.com/0c94840282c8835b189cd4e739e96a2f5cb25795c1d3f1e797134d9455124f46/68747470733a2f2f62616467656e2e6e65742f62616467652f69636f6e2f4d616465253230627925323056657263656c3f69636f6e3d7a656974266c6162656c26636f6c6f723d626c61636b266c6162656c436f6c6f723d626c61636b)](https://next-antd-scaffold.luffyzh.now.sh/)
 [![Join the community on Spectrum](https://withspectrum.github.io/badge/badge.svg)](https://spectrum.chat/zeit)
 
