@@ -1,3 +1,4 @@
+import { HYDRATE } from 'next-redux-wrapper';
 import {
   FETCH_USER_LIST,
   FETCH_USER_LIST_FAIL,
@@ -7,6 +8,9 @@ import {
 const initialState = [];
 
 const list = (state = initialState, { type, payload }) => {
+  if (type === HYDRATE) {
+    return [...payload.user.list];
+  }
   switch (type) {
     case FETCH_USER_LIST:
     case FETCH_USER_LIST_FAIL:
