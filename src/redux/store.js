@@ -42,4 +42,4 @@ function configureStore () {
 
 export default configureStore;
 
-export const wrapper = createWrapper(configureStore, { debug: !IS_PRODUCTION });
+export const wrapper = createWrapper(configureStore, { debug: true });

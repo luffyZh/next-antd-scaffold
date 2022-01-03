@@ -3,7 +3,7 @@ import {
   FETCH_USER_LIST_FAIL
 } from '../../constants/ActionTypes';
 
-export default () => next => action => {
+const user = () => next => action => {
   const ret = next(action);
   switch (action.type) {
     case FETCH_USER_LIST_FAIL: {
@@ -14,3 +14,5 @@ export default () => next => action => {
   }
   return ret;
 };
+
+export default user;

@@ -1,6 +1,8 @@
 import { combineReducers } from 'redux';
 import list from './list';
 
-export default combineReducers({
+const userReducers = combineReducers({
   list
 });
+
+export default userReducers;
